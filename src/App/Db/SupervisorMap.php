@@ -12,24 +12,10 @@ namespace App\Db;
 class SupervisorMap extends \Tk\Db\Mapper
 {
 
-
-    public function unmap($obj)
-    {
-        $arr = array(
-            'id' => $obj->id,
-            'courseId' => $obj->courseId,
-            'title' => $obj->title,
-            'firstName' => $obj->firstName,
-            'lastName' => $obj->lastName,
-            'graduationYear' => $obj->graduationYear,
-            'private' => (int)$obj->private,
-            'modified' => $obj->modified->format('Y-m-d H:i:s'),
-            'created' => $obj->created->format('Y-m-d H:i:s')
-        );
-        return $arr;
-    }
-
-
+    /**
+     * @param array|\stdClass|\Tk\Db\Model $row
+     * @return Supervisor
+     */
     public function map($row)
     {
         $obj = new Supervisor();
@@ -47,6 +33,26 @@ class SupervisorMap extends \Tk\Db\Mapper
             $obj->created = new \DateTime($row['created']);
 
         return $obj;
+    }
+
+    /**
+     * @param \stdClass|\Tk\Db\Model $obj
+     * @return array
+     */
+    public function unmap($obj)
+    {
+        $arr = array(
+            'id' => $obj->id,
+            'courseId' => $obj->courseId,
+            'title' => $obj->title,
+            'firstName' => $obj->firstName,
+            'lastName' => $obj->lastName,
+            'graduationYear' => $obj->graduationYear,
+            'private' => (int)$obj->private,
+            'modified' => $obj->modified->format('Y-m-d H:i:s'),
+            'created' => $obj->created->format('Y-m-d H:i:s')
+        );
+        return $arr;
     }
 
 
