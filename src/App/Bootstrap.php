@@ -72,6 +72,7 @@ class Bootstrap
         }
 
         // * Session
+        session_name('SID-' . md5($config->getAppPath()));
         session_start();
         $config['session'] = $_SESSION;
 
