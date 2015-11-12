@@ -1,0 +1,253 @@
+[
+    {
+        "name": "ttek/tk-installers",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tropotek/tk-installers.git",
+            "reference": "8bfeb4c67b2921d5ddeacaffa19d1e305799784f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tropotek/tk-installers/zipball/8bfeb4c67b2921d5ddeacaffa19d1e305799784f",
+            "reference": "8bfeb4c67b2921d5ddeacaffa19d1e305799784f",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0"
+        },
+        "time": "2014-01-01 00:00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "class": [
+                "Tk\\Installer\\AssetPlugin",
+                "Tk\\Installer\\ThemePlugin",
+                "Tk\\Installer\\PluginPlugin"
+            ],
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Tk\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Mifsud",
+                "email": "info@tropotek.com.au",
+                "homepage": "http://www.tropotek.com/"
+            }
+        ],
+        "description": "Tropotek installer plugins",
+        "keywords": [
+            "installers",
+            "tools",
+            "tropotek"
+        ]
+    },
+    {
+        "name": "ttek/tk-domtemplate",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tropotek/tk-domtemplate.git",
+            "reference": "93323d848ed5e3c7ef3a6531f81faaacd9ad7848"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tropotek/tk-domtemplate/zipball/93323d848ed5e3c7ef3a6531f81faaacd9ad7848",
+            "reference": "93323d848ed5e3c7ef3a6531f81faaacd9ad7848",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2011-12-09 00:00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Dom\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Mifsud",
+                "email": "info@tropotek.com.au",
+                "homepage": "http://www.tropotek.com/"
+            }
+        ],
+        "description": "A PHP DOM Template library using XML/HTML files for templates",
+        "keywords": [
+            "dom",
+            "dom-template",
+            "tropotek"
+        ]
+    },
+    {
+        "name": "ttek/tk-framework",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tropotek/tk-framework.git",
+            "reference": "9a7ddfeeb6f4cc738b2e940b4749309f8f5679e3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tropotek/tk-framework/zipball/9a7ddfeeb6f4cc738b2e940b4749309f8f5679e3",
+            "reference": "9a7ddfeeb6f4cc738b2e940b4749309f8f5679e3",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2010-12-09 00:00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Tk\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Mifsud",
+                "email": "info@tropotek.com",
+                "homepage": "http://www.tropotek.com/"
+            }
+        ],
+        "description": "Tropotek Framework V2",
+        "homepage": "http://www.tropotek.com/",
+        "keywords": [
+            "Tk",
+            "framework",
+            "tropotek"
+        ]
+    },
+    {
+        "name": "ttek/tk-form",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tropotek/tk-form.git",
+            "reference": "1a35645702699d5fca7fd03e27cf446289e692f7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tropotek/tk-form/zipball/1a35645702699d5fca7fd03e27cf446289e692f7",
+            "reference": "1a35645702699d5fca7fd03e27cf446289e692f7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "ttek/tk-framework": "~2.0"
+        },
+        "time": "2013-12-14 00:00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Tk\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Mifsud",
+                "email": "info@tropotek.com.au",
+                "homepage": "http://www.tropotek.com/"
+            }
+        ],
+        "description": "Create dynamic forms easily with the Tk framework",
+        "keywords": [
+            "form",
+            "tropotek"
+        ]
+    },
+    {
+        "name": "ttek/tk-table",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tropotek/tk-table.git",
+            "reference": "0886a8020da45b5154d8e737a0bed341b3fb4631"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tropotek/tk-table/zipball/0886a8020da45b5154d8e737a0bed341b3fb4631",
+            "reference": "0886a8020da45b5154d8e737a0bed341b3fb4631",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "ttek/tk-framework": "~2.0"
+        },
+        "time": "2014-12-04 00:00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Tk\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Mifsud",
+                "email": "info@tropotek.com.au",
+                "homepage": "http://www.tropotek.com/"
+            }
+        ],
+        "description": "A dynamic table lib to manage table rendering",
+        "keywords": [
+            "table",
+            "tropotek"
+        ]
+    }
+]
