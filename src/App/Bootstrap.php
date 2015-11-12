@@ -61,8 +61,7 @@ class Bootstrap
             $config[\Tk\Db\Pdo::CONFIG_DB] = $pdo;
 
         } catch (\Exception $e) {
-            echo '<p>' . $e->getMessage() . '</p>';
-            //$logger->addError($e->getMessage());
+            error_log('<p>' . $e->getMessage() . '</p>');
             exit;
         }
 
