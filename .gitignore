@@ -1,0 +1,12 @@
+.htaccess
+.idea
+.directory
+*.swp
+*bak*
+_*
+data
+assets
+vendor
+docs/api*
+composer.lock
+src/App/config/config.php
