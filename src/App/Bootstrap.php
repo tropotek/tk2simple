@@ -49,25 +49,15 @@ class Bootstrap
         // Include any config overriding settings
         include($config->getSrcPath() . '/App/config/config.php');
 
-        // * Logger
+        // * Logger [use error_log()]
         ini_set('error_log', $config->getSystemLogPath());
-//        $logger = new NullLogger();
-//        if (is_readable($config->getSystemLogPath())) {
-//            $logger = new Logger('system');
-//            $handler = new StreamHandler($config->getSystemLogPath(), $config->getSystemLogLevel());
-//            //$formatter = new LineFormatter(null, 'H:i:s', true, true);
-//            $formatter = new Util\LogLineFormatter();
-//            $handler->setFormatter($formatter);
-//            $logger->pushHandler($handler);
-//        }
-//        $config['log'] = $logger;
 
         // * Database init
         try {
             $pdo = \Tk\Db\Pdo::createInstance($config->getDbName(), $config->getDbUser(), $config->getDbPass(), $config->getDbHost(), $config->getDbType());
-//            $pdo->setOnLogListener(function ($entry) use ($logger) {
-//                $logger->debug('[' . round($entry['time'], 4) . 'sec] ' . $entry['query']);
-//            });
+            $pdo->setOnLogListener(function ($entry) {
+                error_log('[' . round($entry['time'], 4) . 'sec] ' . $entry['query']);
+            });
             $config[\Tk\Db\Pdo::CONFIG_DB] = $pdo;
 
         } catch (\Exception $e) {
@@ -82,15 +72,11 @@ class Bootstrap
         }
 
         // * Session
-//        $storage = new NativeSessionStorage($config->getGroup('session', true), new NativeFileSessionHandler());
-//        $session = new Session($storage);
-//        $session->start();
-//        $config['session'] = $session;
+        session_start();
+        $config['session'] = $_SESSION;
 
-        // Should this be moved to somewhere in the Tk base lib?
-//        \Symfony\Component\HttpFoundation\Request::setFactory(array('\Tk\Sym\Request', 'createRequest'));
-//        $request = Request::createFromGlobals();
-//        $config['request'] = $request;
+        // * Request
+        $config['request'] = $_REQUEST;
 
         // * Authentication object
         //$config['auth'] = new \Tk\Auth\Auth(new \Tk\Auth\Storage\SessionStorage($session));
