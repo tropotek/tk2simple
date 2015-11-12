@@ -22,7 +22,7 @@ Start by getting the dependant libs:
 # composer install
 ```
 
-Then edit the /src/App/config.config.php file to your required settings.
+Then edit the /src/App/config/config.php file to your required settings.
 
 Next check the /src/App/sql folder for any .sql files you need to install to your database
 
