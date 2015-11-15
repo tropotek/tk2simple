@@ -11,7 +11,7 @@ namespace App;
  *
  * I am using the composer.json file to auto execute this file using the following entry:
  *
- *<code>
+ * ~~~json
  *   "autoload":  {
  *     "psr-0":  {
  *       "":  [
@@ -21,8 +21,8 @@ namespace App;
  *     "files" : [
  *       "src/App/Bootstrap.php"    <-- This one
  *     ]
- *   },
- * </code>
+ *   }
+ * ~~~
  *
  *
  * @author Michael Mifsud <info@tropotek.com>

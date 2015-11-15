@@ -17,7 +17,7 @@ A base site using the Tk2 framework on its own.
 
 Start by getting the dependant libs:
 ```bash
-# git clone git@github.com:tropotek/tk2simple.git
+# git clone https://github.com/tropotek/tk2simple.git
 # cd tk2simple
 # composer install
 ```

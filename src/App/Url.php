@@ -6,6 +6,19 @@ namespace App;
 /**
  * Class Url
  *
+ * @startuml
+ * (*)  --> "check input"
+ * If "input is verbose" then
+ * --> [Yes] "turn on verbosity"
+ * --> "run command"
+ * else
+ * --> "run command"
+ * Endif
+ * -->(*)
+ * @enduml
+ *
+ *
+ *
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/
  * @license Copyright 2015 Michael Mifsud
@@ -18,9 +31,9 @@ class Url extends \Tk\Url
      * the project site root is prepended to the given URL.
      *
      * When using create() or new \Tk\Url() there are three ways to supply the spec path:
-     *  o http://www.example.com/path/to/index.html  =>  http://www.example.com/path/to/index.html
-     *  o /path/to/index.html  =>  http://www.sitehost.com/siteUrl/path/to/index.html     <-- Convert to relative
-     *  o path/to/index.html   =>  http://www.sitehost.com/siteUrl/path/to/index.html     <-- Convert to relative
+     *  - http://www.example.com/path/to/index.html  =>  http://www.example.com/path/to/index.html
+     *  - /path/to/index.html  =>  http://www.sitehost.com/siteUrl/path/to/index.html     <-- Convert to relative
+     *  - path/to/index.html   =>  http://www.sitehost.com/siteUrl/path/to/index.html     <-- Convert to relative
      *
      * @param string $spec
      * @return \Tk\Url
