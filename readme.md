@@ -22,6 +22,13 @@ Start by getting the dependant libs:
 # composer install
 ```
 
+~~~bash
+# git clone https://github.com/tropotek/tk2simple.git
+# cd tk2simple
+# composer install
+~~~
+
+
 Then edit the /src/App/config/config.php file to your required settings.
 
 Next check the /src/App/sql folder for any .sql files you need to install to your database
