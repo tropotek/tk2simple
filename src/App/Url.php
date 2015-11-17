@@ -2,7 +2,6 @@
 namespace App;
 
 
-
 /**
  * Class Url
  *
@@ -50,7 +49,6 @@ class Url extends \Tk\Url
             // TODO: not checked `domain.com/path/path`, need to create a regex for this one day
             if (!preg_match('/^(#|javascript|mailto)/i', $spec) && !preg_match('/^([a-zA-Z_-]?\:?\/\/)/', $spec)) {
                 $spec = str_replace($config->getAppUrl(), '', $spec);
-
                 if ($spec[0] == '/') {  // prepend site URL
                     $spec = trim($spec, '/');
                     $spec = $config->getAppUrl() . '/' . $spec;

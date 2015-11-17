@@ -10,11 +10,11 @@ $config = \Tk\Config::getInstance();
 include_once(__DIR__ . '/application.php');
 
 // Database access
-$config['db.type'] = 'mysql';
-$config['db.host'] = 'localhost';
-$config['db.name'] = 'dbname';
-$config['db.user'] = 'user';
-$config['db.pass'] = 'pass';
+$config[\Tk\Db\Pdo::CONFIG_DB . '.type'] = 'mysql';
+$config[\Tk\Db\Pdo::CONFIG_DB . '.host'] = 'localhost';
+$config[\Tk\Db\Pdo::CONFIG_DB . '.name'] = 'dbname';
+$config[\Tk\Db\Pdo::CONFIG_DB . '.user'] = 'user';
+$config[\Tk\Db\Pdo::CONFIG_DB . '.pass'] = 'pass';
 
 
 // Debug settings
