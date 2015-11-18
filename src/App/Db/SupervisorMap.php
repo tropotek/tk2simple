@@ -83,8 +83,8 @@ class SupervisorMap extends \Tk\Db\Mapper
         if (!empty($filter['keywords'])) {
             $kw = '%' . $this->getDb()->escapeString($filter['keywords']) . '%';
             $w = '';
-            $w .= sprintf('a.firstName LIKE %s OR ', $this->getDb()->quote($kw));
-            $w .= sprintf('a.lastName LIKE %s OR ', $this->getDb()->quote($kw));
+            $w .= sprintf('a."firstName" LIKE %s OR ', $this->getDb()->quote($kw));
+            $w .= sprintf('a."lastName" LIKE %s OR ', $this->getDb()->quote($kw));
             if (is_numeric($filter['keywords'])) {
                 $id = (int)$filter['keywords'];
                 $w .= sprintf('a.id = %d OR ', $id);
@@ -109,15 +109,15 @@ class SupervisorMap extends \Tk\Db\Mapper
         }
 
         if (!empty($filter['firstName'])) {
-            $where .= sprintf('a.firstName = %s AND ', $this->getDb()->quote($filter['firstName']));
+            $where .= sprintf('a."firstName" = %s AND ', $this->getDb()->quote($filter['firstName']));
         }
 
         if (!empty($filter['courseId'])) {
-            $where .= sprintf('a.courseId = %s AND ', (int)$filter['courseId']);
+            $where .= sprintf('a."courseId" = %s AND ', (int)$filter['courseId']);
         }
 
         if (!empty($filter['created'])) {
-            $where .= sprintf('a.created > %s AND ', $this->getDb()->quote($filter['created']));
+            $where .= sprintf('a."created" > %s AND ', $this->getDb()->quote($filter['created']));
         }
 
         if ($where) {
