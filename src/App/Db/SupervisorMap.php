@@ -66,7 +66,6 @@ class SupervisorMap extends \Tk\Db\Mapper
         return $this->select(array('courseId' => $courseId));
     }
 
-
     /**
      * Find filtered records
      *

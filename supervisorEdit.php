@@ -110,7 +110,7 @@ function doSubmit($form)
 }
 
 
-$form = new Form('formEdit', array('supervisor' => $supervisor));
+$form = new Form('supervisorEdit', array('supervisor' => $supervisor));
 
 $form->addField(FieldFactory::createText('courseId'))->setRequired(true);
 $form->addField(FieldFactory::createText('title'));
