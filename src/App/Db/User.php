@@ -33,7 +33,7 @@ class User extends \Tk\Db\Model
     /**
      * @var string
      */
-    public $group = '';
+    public $role = '';
 
     /**
      * @var bool

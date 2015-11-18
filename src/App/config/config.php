@@ -11,11 +11,18 @@ include_once(__DIR__ . '/application.php');
 
 
 // Database access
-$config[\Tk\Db\Pdo::CONFIG_DB . '.type'] = 'mysql';
-$config[\Tk\Db\Pdo::CONFIG_DB . '.host'] = 'localhost';
-$config[\Tk\Db\Pdo::CONFIG_DB . '.name'] = 'dev_tk2base';
-$config[\Tk\Db\Pdo::CONFIG_DB . '.user'] = 'dev';
-$config[\Tk\Db\Pdo::CONFIG_DB . '.pass'] = 'dev007';
+$config['db.type'] = 'mysql';
+$config['db.host'] = 'localhost';
+$config['db.name'] = 'dev_tk2base';
+$config['db.user'] = 'dev';
+$config['db.pass'] = 'dev007';
+
+// Database access
+$config['db.type'] = 'pgsql';
+$config['db.host'] = 'localhost';
+$config['db.name'] = 'dev_tk2base';
+$config['db.user'] = 'dev';
+$config['db.pass'] = 'dev007';
 
 
 // Debug settings
