@@ -69,8 +69,12 @@ ob_start();
 $buff = trim(ob_get_clean());
 $template = \Dom\Template::load($buff);
 
+/** @var \Tk\Db\Pdo $db */
+//$db =\Tk\Config::getInstance()->getDb();
 
-$table = new \Tk\Table('table');
+
+
+$table = new \Tk\Table('supervisorManager');
 //$table->addParam('renderer', \Tk\Table\Renderer\Dom\Table::create($table)); // Same as below, both will work
 \Tk\Table\Renderer\Dom\Table::create($table);
 
