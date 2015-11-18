@@ -1,38 +1,38 @@
 
 
-DROP TABLE IF EXISTS "user";
-CREATE TABLE IF NOT EXISTS "user" (
-  "id" int(10) unsigned NOT NULL AUTO_INCREMENT,
-  "username" varchar(255) NOT NULL DEFAULT '',
-  "password" varchar(255) NOT NULL DEFAULT '',
-  "name" varchar(255) NOT NULL DEFAULT '',
-  "group" varchar(255) NOT NULL DEFAULT '',
-  "active" TINYINT(1) NOT NULL DEFAULT 1,
-  "modified" DATETIME NOT NULL,
-  "created" DATETIME NOT NULL,
-  PRIMARY KEY ("id"),
-  UNIQUE KEY "username" ("username")
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL DEFAULT '',
+  `password` varchar(255) NOT NULL DEFAULT '',
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `role` varchar(255) NOT NULL DEFAULT '',
+  `active` TINYINT(1) NOT NULL DEFAULT 1,
+  `modified` DATETIME NOT NULL,
+  `created` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS "comment";
-CREATE TABLE IF NOT EXISTS "comment" (
-  "id" int(10) unsigned NOT NULL AUTO_INCREMENT,
-  "userId" int(10) unsigned NOT NULL DEFAULT '0',
-  "title" varchar(255) NOT NULL DEFAULT '',
-  "comment" TEXT,
-  "modified" DATETIME NOT NULL,
-  "created" DATETIME NOT NULL,
-  PRIMARY KEY ("id"),
-  KEY "userId" ("userId")
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `userId` int(10) unsigned NOT NULL DEFAULT '0',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `comment` TEXT,
+  `modified` DATETIME NOT NULL,
+  `created` DATETIME NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userId` (`userId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
-INSERT INTO "user" ("id" ,"username" ,"password" ,"name" ,"group" ,"modified" ,"created")
+INSERT INTO `user` (`id` ,`username` ,`password` ,`name` ,`role` ,`modified` ,`created`)
 VALUES
   (NULL , 'admin', 'password', 'Administrator', 'admin', NOW() , NOW()),
   (NULL , 'user1', 'password', 'User 1', 'user', NOW() , NOW())
 ;
 
-INSERT INTO "comment" ("id" ,"userId" ,"title" ,"comment" ,"modified" ,"created")
+INSERT INTO `comment` (`id` ,`userId` ,`title` ,`comment` ,`modified` ,`created`)
 VALUES
   (NULL , '1', 'An admin comment', 'This is some test text', NOW() , NOW()),
   (NULL , '2', 'A user comment', 'Some more test text', NOW() , NOW())
@@ -52,42 +52,42 @@ VALUES
 
 -- --------------------------------------------------------
 --
--- Table structure for table "supervisor"
+-- Table structure for table `supervisor`
 --
 
-DROP TABLE IF EXISTS "supervisor";
-CREATE TABLE IF NOT EXISTS "supervisor" (
-  "id" int(10) unsigned NOT NULL AUTO_INCREMENT,
-  "courseId" int(11) NOT NULL,
-  "userId" int(10) unsigned NOT NULL DEFAULT '0',
-  "creatorUserId" int(10) unsigned NOT NULL DEFAULT '0',
-  "title" varchar(32) DEFAULT 'Dr' COMMENT 'REQ: Dr, Mr, Ms, etc',
-  "firstName" varchar(128) DEFAULT NULL,
-  "lastName" varchar(128) DEFAULT NULL,
-  "fullname" varchar(128) DEFAULT NULL,
-  "qualifications" text COMMENT 'REQ: ',
-  "associations" text COMMENT 'REQ: ',
-  "academicAssociate" tinyint(1) DEFAULT '0' COMMENT 'REQ: ',
-  "graduationYear" varchar(5) NOT NULL DEFAULT '' COMMENT 'REQ: First undergrad graduation',
-  "aaAppointment" datetime DEFAULT NULL COMMENT 'REQ: Date of AA Appointment',
-  "staffNumber" varchar(32) NOT NULL DEFAULT '' COMMENT 'Melb Uni Staff Number match LDAP if available',
-  "mobile" varchar(32) NOT NULL DEFAULT '',
-  "altEmail" varchar(255) NOT NULL DEFAULT 'REQ: ',
-  "status" varchar(32) NOT NULL DEFAULT '' COMMENT 'Req: pending/approved/not approved',
-  "private" tinyint(1) DEFAULT '0' COMMENT 'If private: students cannot see in listing only in select lists',
-  "notes" text,
-  "del" tinyint(1) NOT NULL DEFAULT '0',
-  "modified" datetime NOT NULL,
-  "created" datetime NOT NULL,
-  PRIMARY KEY ("id"),
-  KEY "userId" ("userId")
+DROP TABLE IF EXISTS `supervisor`;
+CREATE TABLE IF NOT EXISTS `supervisor` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `courseId` int(11) NOT NULL,
+  `userId` int(10) unsigned NOT NULL DEFAULT '0',
+  `creatorUserId` int(10) unsigned NOT NULL DEFAULT '0',
+  `title` varchar(32) DEFAULT 'Dr' COMMENT 'REQ: Dr, Mr, Ms, etc',
+  `firstName` varchar(128) DEFAULT NULL,
+  `lastName` varchar(128) DEFAULT NULL,
+  `fullname` varchar(128) DEFAULT NULL,
+  `qualifications` text COMMENT 'REQ: ',
+  `associations` text COMMENT 'REQ: ',
+  `academicAssociate` tinyint(1) DEFAULT '0' COMMENT 'REQ: ',
+  `graduationYear` varchar(5) NOT NULL DEFAULT '' COMMENT 'REQ: First undergrad graduation',
+  `aaAppointment` datetime DEFAULT NULL COMMENT 'REQ: Date of AA Appointment',
+  `staffNumber` varchar(32) NOT NULL DEFAULT '' COMMENT 'Melb Uni Staff Number match LDAP if available',
+  `mobile` varchar(32) NOT NULL DEFAULT '',
+  `altEmail` varchar(255) NOT NULL DEFAULT 'REQ: ',
+  `status` varchar(32) NOT NULL DEFAULT '' COMMENT 'Req: pending/approved/not approved',
+  `private` tinyint(1) DEFAULT '0' COMMENT 'If private: students cannot see in listing only in select lists',
+  `notes` text,
+  `del` tinyint(1) NOT NULL DEFAULT '0',
+  `modified` datetime NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `userId` (`userId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10554 ;
 
 --
--- Dumping data for table "supervisor"
+-- Dumping data for table `supervisor`
 --
 
-INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", "firstName", "lastName", "fullname", "qualifications", "associations", "academicAssociate", "graduationYear", "aaAppointment", "staffNumber", "mobile", "altEmail", "status", "private", "notes", "del", "modified", "created") VALUES
+INSERT INTO `supervisor` (`id`, `courseId`, `userId`, `creatorUserId`, `title`, `firstName`, `lastName`, `fullname`, `qualifications`, `associations`, `academicAssociate`, `graduationYear`, `aaAppointment`, `staffNumber`, `mobile`, `altEmail`, `status`, `private`, `notes`, `del`, `modified`, `created`) VALUES
   (74, 2, 0, 0, 'Dr', 'Scott', 'Hall  ', 'Dr Scott Hall', 'BVSc (1996 Queensland), MVS, MAVSc', 'ASAVA, AVA, VECCS, SCCM, College of Vet. Science (emerg and crit care)', 1, '1996', NULL, '', '+61 407 306 838', '', 'approved', 0, '', 0, '2010-09-30 14:42:28', '2010-07-08 16:42:39'),
   (113, 2, 0, 0, 'Dr', 'Anne', 'Dynon', 'Dr Anne Mary Dynon', 'BVSc (Melbourne)', 'ASAVA, AVDS, AVPMA, AVA, MMPB', 1, '1973', NULL, '', '+61 419 364 442', '', 'approved', 0, '', 0, '2010-07-20 19:03:24', '2010-07-12 10:38:45'),
   (115, 2, 0, 0, 'Dr', 'Geoff', 'Chapman  ', 'Dr Geoff Chapman', 'BVSc', 'AVPMA, AVA', 1, '1982', NULL, '', '', '', 'approved', 0, '', 0, '2010-07-20 18:33:53', '2010-07-12 11:29:45'),
@@ -305,7 +305,7 @@ INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", 
   (1474, 2, 0, 0, 'Dr', 'Robert', 'Hyndman  ', 'Dr Robert Hyndman', 'BVSc', '', 0, '1900', NULL, '', '', '', 'approved', 0, '', 0, '2010-10-18 16:49:24', '2010-10-18 16:49:13'),
   (1480, 2, 0, 0, 'Dr', 'Mary', 'Carr  ', 'Dr Mary Carr', 'BVSc', '', 0, '1900', NULL, '', '', '', 'approved', 0, '', 0, '2010-10-18 16:55:34', '2010-10-18 16:55:07'),
   (1484, 2, 0, 0, '', 'A', 'Prof Lucio Filippich ', 'A. Prof Lucio Filippich', 'BVSc, BSc, PhD', '', 0, '1900', NULL, '', '', '', 'approved', 0, '', 0, '2010-10-18 17:01:56', '2010-10-18 17:00:38');
-INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", "firstName", "lastName", "fullname", "qualifications", "associations", "academicAssociate", "graduationYear", "aaAppointment", "staffNumber", "mobile", "altEmail", "status", "private", "notes", "del", "modified", "created") VALUES
+INSERT INTO `supervisor` (`id`, `courseId`, `userId`, `creatorUserId`, `title`, `firstName`, `lastName`, `fullname`, `qualifications`, `associations`, `academicAssociate`, `graduationYear`, `aaAppointment`, `staffNumber`, `mobile`, `altEmail`, `status`, `private`, `notes`, `del`, `modified`, `created`) VALUES
   (1496, 2, 0, 0, 'Dr', 'Linda', 'Davidge', 'Dr. Linda Davidge', 'BVSc. (Hons) M.R.C.V.S, Senior Veterinarian', '', 1, '1986', '2015-07-01 11:35:40', '', '', '', 'approved', 0, '', 0, '2010-10-19 15:00:58', '2010-10-19 09:05:53'),
   (1512, 2, 0, 0, 'Dr', 'Jenny', 'Hibble', 'Dr J Hibble', 'BVSc', '', 0, '2000', NULL, '', '', 'jhibble@wonthaggivet.com.au', 'approved', 0, '', 0, '2013-04-19 10:57:36', '2010-10-19 13:30:07'),
   (1521, 2, 0, 0, 'Dr', 'Catherine', 'Nault  ', 'Dr Catherine Nault', 'BVSc', '', 0, '1999', NULL, '', '', '', 'approved', 0, '', 0, '2010-10-21 14:27:19', '2010-10-19 16:21:05'),
@@ -499,7 +499,7 @@ INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", 
   (4409, 2, 0, 0, 'Dr', 'Jana', 'Stevenson  ', 'Dr Jana Stevenson', 'BSc in Veterinary Biology, BVMS (Murdoch)', 'AVA, Australian Veterinary Behaviour Interest Group', 0, '1992', NULL, '', '', '', 'approved', 0, '', 0, '2011-11-03 10:58:23', '2011-10-18 15:29:34'),
   (4411, 2, 0, 0, 'Dr', 'Leanne', 'Begg  ', 'Dr Leanne Begg', 'BVSc Dip VCS MS MACVSc Diplomate ACVIM\r\nSpecialist In Internal Medicine', '', 0, '1987', NULL, '', '', '', 'approved', 0, '', 0, '2011-10-24 09:38:42', '2011-10-18 15:54:11'),
   (4442, 2, 0, 0, 'Dr', 'Alan', 'Sultan  ', 'Dr Alan Sultan', 'BVSc Melbourne University', '', 0, '1982', NULL, '', '', '', 'approved', 0, '', 0, '2011-11-03 11:45:14', '2011-10-20 15:09:39');
-INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", "firstName", "lastName", "fullname", "qualifications", "associations", "academicAssociate", "graduationYear", "aaAppointment", "staffNumber", "mobile", "altEmail", "status", "private", "notes", "del", "modified", "created") VALUES
+INSERT INTO `supervisor` (`id`, `courseId`, `userId`, `creatorUserId`, `title`, `firstName`, `lastName`, `fullname`, `qualifications`, `associations`, `academicAssociate`, `graduationYear`, `aaAppointment`, `staffNumber`, `mobile`, `altEmail`, `status`, `private`, `notes`, `del`, `modified`, `created`) VALUES
   (4446, 2, 0, 0, 'Dr', 'Rona', 'Sherebrin  ', 'Dr Rona Sherebrin', 'Doctor of Veterinary Medicine degree with honours from the Ontario Veterinary College in 1991\r\nbecame a Certified Veterinary Acupuncturist in 2005\r\nhas completed  Veterinary Tui-Na and Veterinary Herbal Medicine coursework, and is currently studying Advanced Herbology with both the Chi Institute and the Association of Veterinary Acupuncturists of Canada (AVAC)\r\nShe is working towards her Masters Degree of TCVM (joint program Chi Institute of Chinese Medicine and the Southwest China Agricultural University)', 'active member of AVAC (Ontario Regional Delegate, Education Comittee), the American Animal Hospital Association (Scientific Conference Comittee), American Holistic Veterinary Medicine Association (Scientific Journal Literature Search), International Veterinary Acupuncture Association (Electronic Library Comittee) and Veterinary Botanical Medicine Association.', 0, '1991', NULL, '', '', 'dr.sherebrin@mytcmvet.com', 'approved', 0, '', 0, '2011-10-31 13:29:02', '2011-10-21 08:42:21'),
   (4451, 2, 0, 0, 'Dr', 'Julie', 'Fjeldborg  ', 'Dr Julie Fjeldborg', 'DVM PhD Associate Professor', '', 0, '1900', NULL, '', '', 'jf@life.ku.dk', 'approved', 0, '', 0, '2011-11-03 10:38:45', '2011-10-22 11:44:26'),
   (4455, 2, 0, 0, 'Dr', 'Bruce', 'Syme  ', 'Dr Bruce Syme', 'BVSc', '', 0, '1991', NULL, '', '', '', 'approved', 0, '', 0, '2011-11-02 10:31:09', '2011-10-22 17:03:00'),
@@ -674,7 +674,7 @@ INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", 
   (7317, 2, 0, 0, 'Dr', 'Craig', 'Goode  ', 'Dr Craig Goode', 'Bachelor of Veterinary Science (2001 Qld)', '', 0, '2001', NULL, '', '', '', 'approved', 0, '', 0, '2012-08-17 16:25:37', '2012-08-17 16:21:49'),
   (7352, 2, 0, 0, 'Dr', 'Richard', 'Blair  ', 'Dr Richard Blair', 'BVSc (Melb 1984)', 'AVA, ASAVA, Sydney PGF, VIN memberships', 0, '1984', NULL, '', '', 'rblair@belmontvetcentre.com.au', 'approved', 0, '', 0, '2012-08-23 09:40:11', '2012-08-23 09:40:11'),
   (7396, 2, 0, 0, 'Dr', 'Shane', 'Bateman  ', 'Dr Shane Bateman', 'DVM (1990 Saskatoon)', '', 0, '1990', NULL, '', '', '', 'approved', 0, '', 0, '2012-08-30 09:26:45', '2012-08-30 09:26:45');
-INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", "firstName", "lastName", "fullname", "qualifications", "associations", "academicAssociate", "graduationYear", "aaAppointment", "staffNumber", "mobile", "altEmail", "status", "private", "notes", "del", "modified", "created") VALUES
+INSERT INTO `supervisor` (`id`, `courseId`, `userId`, `creatorUserId`, `title`, `firstName`, `lastName`, `fullname`, `qualifications`, `associations`, `academicAssociate`, `graduationYear`, `aaAppointment`, `staffNumber`, `mobile`, `altEmail`, `status`, `private`, `notes`, `del`, `modified`, `created`) VALUES
   (7426, 2, 0, 0, 'Dr', 'Sally', 'Pegrum  ', 'Dr Sally Pegrum', 'BVSc MACVSc??', '', 0, '1993', NULL, '', '', '', 'approved', 0, '', 0, '2012-09-03 10:34:12', '2012-09-03 00:18:53'),
   (7473, 2, 0, 0, 'Dr', 'Cheol-Yong', 'Hwang  ', 'Dr Cheol-Yong Hwang', 'DVM (1996 Gyoungsang) PhD (Internal Medicine) (2001 Seoul)', '', 0, '1996', NULL, '', '', '', 'approved', 0, '', 0, '2012-09-06 09:44:02', '2012-09-06 09:44:02'),
   (7474, 2, 0, 0, 'Dr', 'Lisa', 'Tokach  ', 'Dr Lisa Tokach', 'DVM (1990 Minnesota)', 'Lisa M. Tokach is a veterinary clinician in general practice at Abilene Animal Hospital, PA. She specializes in swine population medicine. Dr. Tokach is also the personnel director for AAHPA and is also serving as the President of Kansas Swine Alliance, Inc.\r\n\r\nShe received her doctorate at the University of Minnesota. In 2001, she was appointed as a diplomate in swine health management to the American Board of Veterinary Practitioners which was renewed in 2011.\r\n\r\nDr. Tokach is licensed in the states of Kansas, Minnesota, Iowa, and Nebraska. She is a member of the American Association of Swine Practitioners, American Veterinary Medical Association, Kansas Veterinary Medical Association, Kansas Pork Producers Council, Association of Psychological Type, and the American Board of Veterinary Practitioners.  In 2008, Dr. Tokach received the Swine Practitioner of the Year from the American Association of Swine Practitioners.\r\n', 0, '1990', NULL, '', '', '', 'approved', 0, '', 0, '2012-09-06 09:48:00', '2012-09-06 09:48:00'),
@@ -824,7 +824,7 @@ INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", 
   (10004, 2, 0, 0, 'Dr', 'Kirsten', 'Neil  ', 'Dr Kirsten Neil', 'BVSc (Hons) MACVSc MS DACVIM CMAVA Cert. ISELP', 'Diplomat status for the American College of Veterinary Internal Medicine (ACVIM)', 0, '1996', NULL, '', '0408769976', ' info@sporthorsevet.com.au', 'approved', 0, '', 0, '2013-05-21 16:35:28', '2013-05-18 10:22:49'),
   (10071, 2, 0, 0, 'Dr', 'Rod', 'Graham  ', 'Dr Rod Graham', 'BVSc, LLb', 'AVA, AVBA, ASAVA + others', 0, '1975', NULL, '', '0488 961710', 'villagevet@hotmail.com', 'approved', 0, '', 0, '2013-05-24 17:00:45', '2013-05-24 12:32:35'),
   (10072, 2, 0, 0, 'Dr', 'Jamie', 'Textor', 'Ms Jamie Textor', 'DVM, Diplomate ACVS', '', 0, '1999', NULL, '', '', '', 'approved', 0, '', 0, '2013-05-30 10:26:26', '2013-05-30 10:26:26'),
-  (10073, 2, 0, 0, 'Dr', 'Bennie', 'van der Merwe', 'Dr Bennie van der Merwe', 'BVSc , University of Pretoria, Onderstepoort', 'Principal was President of the South African Equine Veterinary Association (SAEVA) from 2010 to 2012. Currently on the Exco of SAEVA with the Portfolio of International Liaison. Two publications in the field of Equine Reproduction with Prof . Schulman. Council Member of the South African Thoroughbred Breeder"s Association (TBA) South Africa"s Representative at the International Thoroughbred Breeder"s Federation (ITBF) ITBF rep at the OIE. Board of Racing South Africa. Board of the Equine Research Centre (ERC) , Faculty of Veterinary Science, Onderstepoort. ERC Management Committee.', 0, '1986', NULL, '', '+27 22 9421782', 'namaquas@intekom.co.za', 'approved', 0, '', 0, '2013-06-03 13:45:14', '2013-06-03 13:45:14'),
+  (10073, 2, 0, 0, 'Dr', 'Bennie', 'van der Merwe', 'Dr Bennie van der Merwe', 'BVSc , University of Pretoria, Onderstepoort', 'Principal was President of the South African Equine Veterinary Association (SAEVA) from 2010 to 2012. Currently on the Exco of SAEVA with the Portfolio of International Liaison. Two publications in the field of Equine Reproduction with Prof . Schulman. Council Member of the South African Thoroughbred Breeder`s Association (TBA) South Africa`s Representative at the International Thoroughbred Breeder`s Federation (ITBF) ITBF rep at the OIE. Board of Racing South Africa. Board of the Equine Research Centre (ERC) , Faculty of Veterinary Science, Onderstepoort. ERC Management Committee.', 0, '1986', NULL, '', '+27 22 9421782', 'namaquas@intekom.co.za', 'approved', 0, '', 0, '2013-06-03 13:45:14', '2013-06-03 13:45:14'),
   (10074, 2, 0, 0, '', '', '', '', '', '', 0, '', NULL, '', '', '', 'pending', 0, '', 1, '2013-06-19 23:27:45', '2013-06-19 23:27:45'),
   (10075, 2, 0, 0, 'Dr', 'Kate', 'Dodgy', 'Dr Dodgy Kate Dodgy', '', '', 0, '1984', NULL, '', '', '', 'approved', 0, '', 0, '2013-06-20 15:40:34', '2013-06-20 15:40:34'),
   (10076, 2, 0, 0, 'Professor', 'Josh', 'Slater', 'Professor Josh Slater', 'PhD BVM&S', '', 0, '1985', NULL, '', '', '', 'approved', 0, 'Josh is a Professor of Equine Clinical Studies at the Royal Veterinary College. He is currently the head of the equine clinical group, and is the immediate past president of the British Equine Veterinary Association (BEVA).', 0, '2013-06-24 09:16:48', '2013-06-24 09:16:48'),
@@ -851,7 +851,7 @@ INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", 
   (10097, 2, 0, 0, 'Dr', 'Emma', 'Prideaux', NULL, 'University of Melbourne (Honours) 2000\nSmall Animal Surgery and Medicine internship\nAQIS accreditation', '', 0, '2000', NULL, '', '', '', 'approved', 0, '', 0, '2013-08-16 10:04:24', '2013-08-16 10:04:24'),
   (10098, 2, 0, 0, 'Dr', 'Teresa', 'Cheng', NULL, 'Diplomate of the ACVECC', '', 0, '2002', NULL, '', '', 'careers@canadawestvets.com', 'approved', 0, 'http://canadawestvets.com/meet-our-team/departments/er-critical-care/dr-teresa-cheng/', 0, '2013-08-17 12:41:51', '2013-08-17 12:41:51'),
   (10099, 2, 0, 0, 'Dr', 'Kate', 'Heading', NULL, 'BVSc (Hons),  FANZCVS (Specialist in Small Animal Medicine)', '', 1, '2000', '2014-03-06 15:38:50', '', '', 'medicine@melbvet.com.au', 'approved', 0, '', 0, '2013-08-20 14:06:09', '2013-08-20 14:06:09');
-INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", "firstName", "lastName", "fullname", "qualifications", "associations", "academicAssociate", "graduationYear", "aaAppointment", "staffNumber", "mobile", "altEmail", "status", "private", "notes", "del", "modified", "created") VALUES
+INSERT INTO `supervisor` (`id`, `courseId`, `userId`, `creatorUserId`, `title`, `firstName`, `lastName`, `fullname`, `qualifications`, `associations`, `academicAssociate`, `graduationYear`, `aaAppointment`, `staffNumber`, `mobile`, `altEmail`, `status`, `private`, `notes`, `del`, `modified`, `created`) VALUES
   (10100, 2, 0, 0, 'Dr', 'Terry', 'Lowis', NULL, 'BVSc, MVS, MACVSc', '', 0, '1972', NULL, '', '', 'terry@studandstablevets.com.au', 'approved', 0, '', 0, '2013-08-21 16:44:32', '2013-08-21 16:44:32'),
   (10101, 2, 0, 0, 'Dr', 'David', 'Kirby', NULL, 'DVM', 'None', 0, '1973', NULL, '', '', 'info@masonvilleanimalhospital.com', 'approved', 0, '', 0, '2013-08-22 11:33:32', '2013-08-22 11:33:32'),
   (10102, 2, 0, 0, 'Dr', 'Andrew', 'Cust', NULL, 'BSc, BVSc, MVSc.', '', 0, '2001', NULL, '', '', 'bvpec@bvp.com.au', 'approved', 0, '', 0, '2013-08-27 16:05:34', '2013-08-27 16:05:34'),
@@ -1049,7 +1049,7 @@ INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", 
   (10294, 2, 0, 745, 'Dr', 'Adam', 'Russell', NULL, 'BSc (Hons.), BVSc, MBA', '', 0, '2006', NULL, '', '', 'hello@villagevetsdelahey.com.au', 'approved', 0, '', 0, '2014-08-24 21:41:02', '2014-08-24 21:41:02'),
   (10295, 2, 0, 826, 'Dr', 'Jim', 'Taylor', NULL, 'BVSc (University of Queensland), MSc (Iowa State University), MANZCVS (Pathobiology)', '', 0, '1981', NULL, '', '', 'Jim.Taylor@dpipwe.tas.gov.au', 'approved', 0, '', 0, '2014-08-25 11:33:23', '2014-08-25 11:33:23'),
   (10296, 2, 0, 514, 'Dr', 'Pam', 'Whiteley', NULL, '', '', 1, '1970', NULL, '', '', 'pamw@unimelb.edu.au', 'approved', 0, '', 0, '2014-08-25 21:57:35', '2014-08-25 21:57:35');
-INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", "firstName", "lastName", "fullname", "qualifications", "associations", "academicAssociate", "graduationYear", "aaAppointment", "staffNumber", "mobile", "altEmail", "status", "private", "notes", "del", "modified", "created") VALUES
+INSERT INTO `supervisor` (`id`, `courseId`, `userId`, `creatorUserId`, `title`, `firstName`, `lastName`, `fullname`, `qualifications`, `associations`, `academicAssociate`, `graduationYear`, `aaAppointment`, `staffNumber`, `mobile`, `altEmail`, `status`, `private`, `notes`, `del`, `modified`, `created`) VALUES
   (10297, 2, 0, 521, 'Dr', 'Brett', 'Tennent-Brown', NULL, 'BVSc, MS, ACVIM, ACVECC', '', 1, '1999', NULL, '', '', 'brett.tennent@unimelb.edu.au', 'approved', 0, '', 0, '2014-08-26 23:41:49', '2014-08-26 23:41:49'),
   (10298, 2, 0, 756, 'Dr', 'Stewart', 'Ryan', NULL, '', '', 1, '1989', NULL, '', '', 'stewart.ryan@unimelb.edu.au', 'approved', 0, '', 0, '2014-08-28 16:25:08', '2014-08-28 16:25:08'),
   (10299, 2, 0, 820, 'Dr', 'Benn', 'Bryant', NULL, 'BVSc MVS MANZCVSc', '', 0, '1988', NULL, '', '0418 861 703', 'bbryant@zoo.nsw.gov.au', 'approved', 0, '', 0, '2014-09-03 19:16:15', '2014-09-03 19:16:15'),
@@ -1244,7 +1244,7 @@ INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", 
   (10488, 5, 0, 1533, 'Mr.', 'Pete', 'Zwiers', NULL, '', '', 0, '', NULL, '', '0488029821', 'PeteZ@foodbankvictoria.org.au', 'approved', 0, '', 0, '2015-07-30 12:13:39', '2015-07-30 12:13:39'),
   (10489, 2, 0, 1379, 'Dr', 'Joanie', 'Dolance', NULL, 'Doctor of Veterinary Medicine (DVM), Director, Department of Emergency and Critical Care & Educational Program Coordinator', '', 0, '2004', NULL, '', '', 'jdolance@asecvets.com', 'approved', 0, '', 0, '2015-07-31 17:33:15', '2015-07-31 17:33:15'),
   (10490, 2, 0, 1089, 'Mrs', 'Leilani Ireland', 'Way', NULL, 'DVM\nMS\nDACVECC', '', 0, '2007', NULL, '', '', 'Leilani.way@vca.com', 'approved', 0, '', 0, '2015-07-31 20:20:12', '2015-07-31 20:20:12');
-INSERT INTO "supervisor" ("id", "courseId", "userId", "creatorUserId", "title", "firstName", "lastName", "fullname", "qualifications", "associations", "academicAssociate", "graduationYear", "aaAppointment", "staffNumber", "mobile", "altEmail", "status", "private", "notes", "del", "modified", "created") VALUES
+INSERT INTO `supervisor` (`id`, `courseId`, `userId`, `creatorUserId`, `title`, `firstName`, `lastName`, `fullname`, `qualifications`, `associations`, `academicAssociate`, `graduationYear`, `aaAppointment`, `staffNumber`, `mobile`, `altEmail`, `status`, `private`, `notes`, `del`, `modified`, `created`) VALUES
   (10491, 2, 0, 1046, 'Dr', 'Emma', 'Feeney', NULL, '', '', 0, '2004', NULL, '', '', 'craigieburn@petvet.com.au', 'approved', 0, '', 0, '2015-08-01 13:50:36', '2015-08-01 13:50:36'),
   (10492, 5, 0, 1561, 'Dr.', 'Dave', 'Collins', NULL, 'University of Melbourne\nPhD, Civil & Environmental Engineering\n1999 – 2002\n\nUNSW\nBE(Hons), Mechanical Engineering\n\nDave is Director and Principal Environmental Engineer at Synergetics Environmental Engineering, environmental and process modelling specialists to industry and governments. See www.synergetics.com.au.\n\nDave represented the Commonwealth Government during development of Australia''s first National Environmental Standards (Air NEPM) and served on the National Advisory Body for Wastes and developed National Standards for PCBs and OCPs. Dave was Chair of the AIGroup National Environment Committee, President CASANZ Vic/Tas, Visiting Scientist CSIRO and Nominated Judge for the Large Industry Category for the National Banksia Awards and the Victorian Premiers’ Environmental Awards. He is a Board Certified Occupational Hygienist in both the United States and Australia, and served on Standards Australia committees. Dave is a Technical Assessor for National Association of Testing Authorities and a Registered Building Practitioner. He is a Fellow of the Institution of Engineers, Fellow of the Australian Institute of Energy and Advisor to Chemical Engineering at the University of Melbourne and an Adjunct at Monash University.', 'FIEAust, FAIE, MAIOH, CIH, COH, RBP', 0, '', NULL, '', '+61 438 394 191', 'davec@synergetics.net.au', 'approved', 0, '', 0, '2015-08-04 08:17:40', '2015-08-04 08:17:40'),
   (10493, 2, 0, 1135, 'Dr', 'Martin', 'Earles', NULL, 'B.V.Sc', '', 0, '1993', NULL, '', '', 'bcvh.martin@xtra.co.nz', 'approved', 0, '', 0, '2015-08-05 14:18:40', '2015-08-05 14:18:40'),
