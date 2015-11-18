@@ -20,7 +20,7 @@ class UserMap extends \Tk\Db\Mapper
             'username' => $obj->username,
             'password' => $obj->password,
             'name' => $obj->name,
-            'group' => $obj->group,
+            'role' => $obj->role,
             'active' => (int)$obj->active,
             'modified' => $obj->modified->format('Y-m-d H:i:s'),
             'created' => $obj->created->format('Y-m-d H:i:s')
@@ -36,7 +36,7 @@ class UserMap extends \Tk\Db\Mapper
         $obj->username = $row['username'];
         $obj->password = $row['password'];
         $obj->name = $row['name'];
-        $obj->group = $row['group'];
+        $obj->role = $row['role'];
         $obj->active = ($row['active'] == 1);
         if ($row['modified'])
             $obj->modified = new \DateTime($row['modified']);
@@ -46,10 +46,13 @@ class UserMap extends \Tk\Db\Mapper
     }
 
 
-
+    /**
+     * @param $username
+     * @return User
+     */
     public function findByUsername($username)
     {
-        return current($this->select(array('username' => $username)));
+        return current($this->select('username = ' . $this->getDb()->quote($username) ));
     }
 
 

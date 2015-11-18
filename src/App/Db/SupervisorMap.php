@@ -78,16 +78,16 @@ class SupervisorMap extends \Tk\Db\Mapper
     {
         $this->setAlias('a');
 
-        $from = sprintf('`%s` %s, `user` b ', $this->getTable(), $this->getAlias());
+        $from = sprintf('%s %s, "user" b ', $this->getDb()->quoteParameter($this->getTable()), $this->getAlias());
         $where = '';
         if (!empty($filter['keywords'])) {
             $kw = '%' . $this->getDb()->escapeString($filter['keywords']) . '%';
             $w = '';
-            $w .= sprintf('a.`firstName` LIKE %s OR ', $this->getDb()->quote($kw));
-            $w .= sprintf('a.`lastName` LIKE %s OR ', $this->getDb()->quote($kw));
+            $w .= sprintf('a.firstName LIKE %s OR ', $this->getDb()->quote($kw));
+            $w .= sprintf('a.lastName LIKE %s OR ', $this->getDb()->quote($kw));
             if (is_numeric($filter['keywords'])) {
                 $id = (int)$filter['keywords'];
-                $w .= sprintf('a.`id` = %d OR ', $id);
+                $w .= sprintf('a.id = %d OR ', $id);
             }
             if ($w) {
                 $where .= '(' . substr($w, 0, -3) . ') AND ';
@@ -101,7 +101,7 @@ class SupervisorMap extends \Tk\Db\Mapper
             $statusStr = '';
             foreach ($filter['status'] as $s) {
                 if (!trim($s)) continue;
-                $statusStr .= sprintf('a.`status` =  %s OR ', $this->getDb()->quote($s));
+                $statusStr .= sprintf('a.status =  %s OR ', $this->getDb()->quote($s));
             }
             if ($statusStr) {
                 $where .= '(' . substr($statusStr, 0, -3) . ') AND ';
@@ -109,15 +109,15 @@ class SupervisorMap extends \Tk\Db\Mapper
         }
 
         if (!empty($filter['firstName'])) {
-            $where .= sprintf('a.`firstName` = %s AND ', $this->getDb()->quote($filter['firstName']));
+            $where .= sprintf('a.firstName = %s AND ', $this->getDb()->quote($filter['firstName']));
         }
 
         if (!empty($filter['courseId'])) {
-            $where .= sprintf('a.`courseId` = %s AND ', (int)$filter['courseId']);
+            $where .= sprintf('a.courseId = %s AND ', (int)$filter['courseId']);
         }
 
         if (!empty($filter['created'])) {
-            $where .= sprintf('a.`created` > %s AND ', $this->getDb()->quote($filter['created']));
+            $where .= sprintf('a.created > %s AND ', $this->getDb()->quote($filter['created']));
         }
 
         if ($where) {
