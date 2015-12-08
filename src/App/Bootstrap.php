@@ -54,11 +54,11 @@ class Bootstrap
 
         // * Database init
         try {
-            $pdo = \Tk\Db\Pdo::createInstance($config->getDbName(), $config->getDbUser(), $config->getDbPass(), $config->getDbHost(), $config->getDbType());
+            $pdo = \Tk\Db\Pdo::createInstance($config->getDbName(), $config->getDbUser(), $config->getDbPass(), $config->getDbHost(), $config->getDbType(), $config->getGroup('db', true));
             $pdo->setOnLogListener(function ($entry) {
                 error_log('[' . round($entry['time'], 4) . 'sec] ' . $entry['query']);
             });
-            $config[\Tk\Db\Pdo::CONFIG_DB] = $pdo;
+            $config->setDb($pdo);
 
         } catch (\Exception $e) {
             error_log('<p>' . $e->getMessage() . '</p>');
