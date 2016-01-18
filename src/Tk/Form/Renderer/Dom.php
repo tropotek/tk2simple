@@ -5,6 +5,13 @@ use Tk\Form\Field;
 use Tk\Form\Event;
 use Tk\Form;
 
+/**
+ * Class Dom
+ *
+ * @author Michael Mifsud <info@tropotek.com>
+ * @link http://www.tropotek.com/
+ * @license Copyright 2015 Michael Mifsud
+ */
 class Dom extends \Tk\Form\Renderer\Iface
 {
 
@@ -87,15 +94,19 @@ class Dom extends \Tk\Form\Renderer\Iface
         $html = $field->getHtml();
         
         if ($field instanceof Event\Iface) {
+            /** @var Event\Iface $field */
             if ($html instanceof \Dom\Template) {
                 $t->appendTemplate('events', $html);
             } else {
                 $t->appendHtml('events', $html);
             }
         } else {
+            /** @var Field\Iface $field */
             // TODO: Check this is how we want to do this, I would like to see the ability to override the FieldGroup object
             $fg = new FieldGroup($field);
             $html = $fg->show();
+            
+            
             if ($html instanceof \Dom\Template) {
                 $t->appendTemplate('fields', $html);
             } else {

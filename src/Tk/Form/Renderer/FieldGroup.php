@@ -6,7 +6,6 @@ use Tk\Form\Event;
 use Tk\Form\Element;
 
 /**
- * Class FieldRenderer
  *
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/
@@ -25,7 +24,7 @@ class FieldGroup extends \Dom\Renderer\Renderer
      * __construct
      *
      *
-     * @param Element $field
+     * @param Field\Iface $field
      */
     public function __construct($field)
     {
@@ -43,7 +42,7 @@ class FieldGroup extends \Dom\Renderer\Renderer
 
     /**
      * 
-     * @return Element
+     * @return Field\Iface
      */
     public function getField()
     {
@@ -56,8 +55,12 @@ class FieldGroup extends \Dom\Renderer\Renderer
     public function show()
     {
         $t = $this->getTemplate();
-        //$this->getField()->show();
-
+        $this->getField()->addCss('form-control');
+        
+        if ($this->getField() instanceof Field\Hidden) {
+            return $this->getField()->getHtml();
+        }
+        
         if ($this->getField()->hasErrors()) {
             $t->addClass('field-group', 'has-error');
             
@@ -80,14 +83,20 @@ class FieldGroup extends \Dom\Renderer\Renderer
             $t->setAttr('label', 'for', $this->getField()->getAttr('id'));
             $t->setChoice('label');
         }
-
+        
         if ($this->getField()->getNotes()) {
             $t->setChoice('notes');
             $t->insertHtml('notes', $this->getField()->getNotes());
         }
-
-        $t->replaceTemplate('element', $this->getField()->getHtml());
-        //$this->getField()->setTemplate($this->getTemplate());
+        
+        $html = $this->getField()->getHtml();
+        if ($html instanceof \Dom\Template) {
+            $t->appendTemplate('element', $html);
+        } else {
+            $t->appendHtml('element', $html);
+        }
+        
+        
         return $t;
     }
 
@@ -102,7 +111,7 @@ class FieldGroup extends \Dom\Renderer\Renderer
 <div class="form-group form-group-sm " var="field-group">
   <label class="control-label" var="label" choice="label"></label>
   <span class="help-block error-text" choice="errorText"><span class="glyphicon glyphicon-ban-circle"></span> <span var="errorText"></span></span>
-  <div var="element"></div>
+  <div var="element" class="controls"></div>
   <span class="help-block help-text" var="notes" choice="notes"></span>
 </div>
 XHTML;

@@ -5,7 +5,6 @@ use Tk\Form\Element;
 use Tk\Form\Exception;
 
 /**
- * Class Text
  *
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/

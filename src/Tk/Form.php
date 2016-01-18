@@ -441,8 +441,7 @@ class Form extends Form\Element
             }
         }
     }
-
-
+    
     /**
      * Loads the fields with values from an array.
      * EG:

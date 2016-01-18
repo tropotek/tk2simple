@@ -63,4 +63,24 @@ body {
 }
 
 
+.tk-form .control-label {
+  padding-right: 10px;
+}
+.tk-form.form-horizontal .control-label {
+  width: 10%;
+  text-align: right;
+  float: left;
+  display: block;
+}
+.tk-form.form-horizontal .controls {
+  line-height: 2;
+  float: left;
+  width: 85%;
+}
+.tk-form.form-horizontal .tk-form-events {
+  margin-left: 10%;
+  margin-top: 10px;
+}
+
+
 

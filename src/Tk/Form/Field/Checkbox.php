@@ -1,42 +1,46 @@
 <?php
 namespace Tk\Form\Field;
 
-
+/**
+ *
+ * @author Michael Mifsud <info@tropotek.com>
+ * @link http://www.tropotek.com/
+ * @license Copyright 2015 Michael Mifsud
+ */
 class Checkbox extends Input
 {
-
-    
-    
     
     /**
      * __construct
      *
      * @param string $name
-     * @throws Exception
      */
     public function __construct($name)
     {
-        $this->setName($name);
+        parent::__construct($name);
         $this->setType('checkbox');
     }
 
 
-
     /**
-     * Is the value checked
+     * Set the field value(s)
      *
-     * @return bool
+     * @param array|string $values
+     * @return $this
      */
-    public function isSelected($val = '')
+    public function setValue($values)
     {
-        $arr = $this->getValue();
-        if (!empty($arr[$this->getName()]) && $arr[$this->getName()] == $this->getName()) {
-            return true;
+        if (!is_array($values)) {
+            $values = array($this->getName() => $values);
         }
-        return false;
+        if (!isset($values[$this->getName()])) {
+            $this->values[$this->getName()] = false;
+        } else {
+            $this->values[$this->getName()] = $values[$this->getName()];
+        }
+        return $this;
     }
     
-
     /**
      * Get the element HTML
      *
@@ -44,16 +48,31 @@ class Checkbox extends Input
      */
     public function getHtml()
     {
+        $this->removeCss('form-control');
         $t = parent::getHtml();
         
-        if ($this->isSelected()) {
+        if ($this->getValue()) {
             $t->setAttr('element', 'checked', 'checked');
         }
         $t->setAttr('element', 'value', $this->getName());
-        
         return $t;
     }
     
-    
+    /**
+     * makeTemplate
+     *
+     * @return \Dom\Template
+     */
+    public function __makeTemplate()
+    {
+        $xhtml = <<<XHTML
+<div class="checkbox">
+  <label>
+    <input type="checkbox" var="element"/> <span var="label"></span>
+  </label>
+</div>
+XHTML;
+        return \Dom\Loader::load($xhtml);
+    }
     
 }

@@ -3,8 +3,16 @@ namespace Tk\Form\Renderer;
 
 use \Tk\Form;
 use \Tk\Form\Field;
+use \Tk\Form\Element;
 use \Tk\Form\Exception;
 
+/**
+ * Class DomStatic
+ *
+ * @author Michael Mifsud <info@tropotek.com>
+ * @link http://www.tropotek.com/
+ * @license Copyright 2015 Michael Mifsud
+ */
 class DomStatic extends Iface
 {
     
@@ -92,12 +100,17 @@ class DomStatic extends Iface
     /**
      * Render the form field values
      *
-     * @param Field\Iface $field
+     * @param Element $field
      * @return mixed
      * @throws \Tk\Exception
      */
-    protected function showField(Field\Iface $field)
+    protected function showField(Element $field)
     {
+        if (!$field instanceof Field\Iface) {
+            return;
+        }
+        
+        /** @var Field\Iface $field */
         $elName = $field->getName();
         if ($field->isArray()) {
             $elName .= '[]';
@@ -115,7 +128,6 @@ class DomStatic extends Iface
             return;
         }
 
-        
         $value = $field->getValue();
         $elName = $field->getName();
         if (is_array($value) || $field->isArray()) {
@@ -129,11 +141,6 @@ class DomStatic extends Iface
             switch (get_class($el)) {
                 case 'Dom\Form\Input' :
                     $nodeType = $el->getType();
-//                    if ($nodeType == 'file') {
-//                        // Check form enctype exists
-//                        $this->domForm->getNode()->setAttribute('enctype', \Tk\Form::ENCTYPE_MULTIPART);
-//                        break;
-//                    }
                     if ($nodeType == 'checkbox' || $nodeType == 'radio') {
                         if (is_array($value) && $nodeType == 'checkbox') {
                             foreach ($value as $v) {
@@ -161,7 +168,6 @@ class DomStatic extends Iface
             }
         }
         
-
         // Render Errors
         if ($field->hasErrors()) {
             $this->showError($field);

@@ -4,7 +4,6 @@ namespace Tk\Form\Field;
 use \Tk\Form;
 
 /**
- * Class Text
  *
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/
@@ -134,7 +133,7 @@ class File extends Input
     public function hasFile()
     {
         if ($this->isArray()) {
-            if (isset($_FILES[$this->getName()]['name']) && is_array($_FILES[$this->getName()]['name'])) {
+            if (isset($_FILES[$this->getName()]['name'][0]) && $_FILES[$this->getName()]['name'][0] != '') {
                 return true;
             }
         } else {
