@@ -1,7 +1,8 @@
 <?php
 
 use Tk\Table\Cell;
-use \Tk\Form\Renderer\Dom\FieldFactory;
+//use \Tk\Form\Renderer\Dom\FieldFactory;
+use Tk\Form\Field;
 
 include(dirname(__FILE__) . '/vendor/autoload.php');
 ob_start();
@@ -89,8 +90,8 @@ $table->addCell(new Cell\Date('modified'));
 $table->addCell(new Cell\Date('created'));
 
 // Add filters
-$table->addFilter(FieldFactory::createText('keywords'))->setLabel('')->setAttr('placeholder', 'Keywords');
-$table->addFilter(FieldFactory::createText('firstName'))->setLabel('')->setAttr('placeholder', 'First Name');
+$table->addFilter(new Field\Input('keywords'))->setLabel('')->setAttr('placeholder', 'Keywords');
+$table->addFilter(new Field\Input('firstName'))->setLabel('')->setAttr('placeholder', 'First Name');
 
 // Add Actions?
 $table->addAction(new \Tk\Table\Action\Delete());

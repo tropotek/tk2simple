@@ -1,7 +1,7 @@
 <?php
 use Tk\Form;
-use Tk\Form\Type;
-use \Tk\Form\Renderer\Dom\FieldFactory;
+use Tk\Form\Field;
+use Tk\Form\Event;
 
 include(dirname(__FILE__) . '/vendor/autoload.php');
 ob_start();
@@ -71,6 +71,21 @@ ob_start();
     <div class="contact-form-wrapper">
       <form id="contactForm" method="post" class="form-horizontal" role="form">
 
+
+        <div class="form-group" var="group-type">
+          <label for="prependedInput" class="col-sm-3 control-label">
+            <b>Title</b>
+          </label>
+          <div class="col-sm-9">
+            <select class="form-control" name="title" id="title">
+              <option value="">-- Select --</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+            </select>
+          </div>
+        </div>
+          
         <div class="form-group">
           <label for="name" class="col-sm-3 control-label">
             <b>Name *</b>
@@ -89,13 +104,12 @@ ob_start();
           </div>
         </div>
 
-        <div class="form-group" var="group-type">
-          <label for="prependedInput" class="col-sm-3 control-label">
-            <b>Topic</b>
-          </label>
-          <div class="col-sm-9">
-            <select class="form-control" name="type[]" id="type" multiple="multiple">
-              <option value="">Please select topic...</option>
+          <div class="form-group" var="group-type">
+            <label for="prependedInput" class="col-sm-3 control-label">
+              <b>Topic</b>
+            </label>
+            <div class="col-sm-9">
+              <select class="form-control" name="type[]" id="type" multiple="multiple" size="3">
               <option value="General">General</option>
               <option value="Services">Services</option>
               <option value="Orders">Orders</option>
@@ -163,6 +177,8 @@ function doSubmit($form)
   if (empty($values['message'])) {
     $form->addFieldError('message', 'Please enter some message text');
   }
+  
+  //$form->addFieldError('test', 'ggggg');
 
   // validate any files
   $attach->isValid();
@@ -174,7 +190,7 @@ function doSubmit($form)
   if ($attach->hasFile()) {
     $attach->moveUploadedFile($config->getDataPath() . '/contact/' . date('d-m-Y') . '-' . str_replace('@', '_', $values['email']));
   }
-
+  
   if (sendEmail($form)) {
     //\App\Alert::getInstance()->addSuccess('<strong>Success!</strong> Your form has been sent.');
     error_log('Contact form success.');
@@ -192,21 +208,23 @@ function doSubmit($form)
  */
 function sendEmail($form)
 {
-  $name = $form->getFieldValue('name');
-  $email = $form->getFieldValue('email');
-  $type = '';
-  if (is_array($form->getFieldValue('type')))
+    $title = $form->getFieldValue('title');
+    $name = $form->getFieldValue('name');
+    $email = $form->getFieldValue('email');
+    $type = '';
+    if (is_array($form->getFieldValue('type')))
     $type = implode(', ', $form->getFieldValue('type'));
-  $message = $form->getFieldValue('message');
-  $attachCount = '';
+    $message = $form->getFieldValue('message');
+    $attachCount = '';
 
-  $field = $form->getField('attach');
-  if ($field->count()) {
-    $attachCount = 'Attachments: ' . $field->count();
+  $file = $form->getField('attach');
+  if ($file->count()) {
+    $attachCount = 'Attachments: ' . $file->count();
   }
 
+    
   $message = <<<MSG
-Dear $name,
+Dear $title $name,
 
 Email: $email
 Type: $type
@@ -216,18 +234,41 @@ Message:
 
 $attachCount
 MSG;
-  error_log($message);
+    
+  error_log("\n".$message);
+    
   return true;
 }
 
-$form = \App\Form\FormHelper::createForm($template->getForm('contactForm'));
-$form->setEventCallback('send', 'doSubmit');
+
+
+
+//$form = \App\Form\FormHelper::createForm($template->getForm('contactForm'));
+//$domForm = $template->getForm('contactForm');
+
+$form = new Form('contactForm');
+
+$opts = \Tk\Form\Field\Option\ArrayIterator::create(array('Mr', 'Mrs', 'Miss'));
+$form->addField(new Field\Select('title', $opts));
+$form->addField(new Field\Input('name'));
+$form->addField(new Field\Input('email'));
+
+//$opts = \Tk\Form\Field\Option\ArrayIterator::create(array('General', 'Services', 'Orders'));
+$opts = \Tk\Form\Field\Option\ArrayIterator::create(array('General' => 'General', 'Services' => 'Services', 'Orders' => 'Orders'));
+
+$form->addField(new Field\Select('type[]', $opts));
+
+$form->addField(new Field\File('attach[]'));
+$form->addField(new Field\Textarea('message'));
+
+$form->addField(new Event\Button('send', 'doSubmit'));
+
 // Init form data and fire any event
 $form->execute();
 
 
 // Render the form
-\Tk\Form\Renderer\Dom\FormStatic::create($form, $template)->show();
+\Tk\Form\Renderer\DomStatic::create($form, $template)->show();
 
 
 
