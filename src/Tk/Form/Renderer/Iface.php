@@ -5,7 +5,6 @@ use \Tk\Form;
 use \Tk\Form\Field;
 
 /**
- * Class Iface
  *
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/

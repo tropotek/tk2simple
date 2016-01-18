@@ -3,7 +3,6 @@ namespace Tk\Form\Field;
 
 
 /**
- * Class Text
  *
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/
@@ -43,10 +42,7 @@ class Input extends Iface
      */
     public function getHtml()
     {
-        $xhtml = <<<XHTML
-<input type="text" var="element"/>
-XHTML;
-        $t = \Dom\Loader::load($xhtml);
+        $t = $this->__makeTemplate();
         
         if (!$t->keyExists('var', 'element')) {
             return '';
@@ -81,9 +77,23 @@ XHTML;
             }
         }
         
-        
         return $t;
     }
-    
+
+
+
+    /**
+     * makeTemplate
+     *
+     * @return \Dom\Template
+     */
+    public function __makeTemplate()
+    {
+
+        $xhtml = <<<XHTML
+<input type="text" var="element"/>
+XHTML;
+        return \Dom\Loader::load($xhtml);
+    }
     
 }

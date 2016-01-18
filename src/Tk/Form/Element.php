@@ -4,7 +4,6 @@ namespace Tk\Form;
 use Tk\Form;
 
 /**
- * Interface Element
  *
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/

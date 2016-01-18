@@ -5,7 +5,6 @@ use Tk\Form\Exception;
 use \Tk\Form;
 
 /**
- * Class Iface
  *
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/
@@ -20,7 +19,6 @@ abstract class Iface extends \Tk\Form\Element
      */
     protected $values = array();
     
-
     /**
      * @var bool
      */
@@ -30,8 +28,7 @@ abstract class Iface extends \Tk\Form\Element
      * @var bool
      */
     protected $arrayField = false;
-
-
+    
 
     /**
      * __construct
@@ -56,7 +53,7 @@ abstract class Iface extends \Tk\Form\Element
             $values = array($this->getName() => $values);
         }
         if (!isset($values[$this->getName()])) return $this;
-        
+   
         $this->values[$this->getName()] = $values[$this->getName()];
 
         return $this;
@@ -118,5 +115,16 @@ abstract class Iface extends \Tk\Form\Element
         return $this->arrayField;
     }
 
-
+    /**
+     * Set to true if this element is an array set
+     * 
+     * @param $b
+     * @return $this
+     */
+    public function setArrayField($b)
+    {
+        $this->arrayField = $b;
+        return $this;
+    }
+    
 }

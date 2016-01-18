@@ -45,6 +45,7 @@
 
     "ttek/tk-installers": "~2.0",
     "ttek/tk-domtemplate": "~2.0",
+    "ttek/tk-form": "~2.0",
     "ttek/tk-table": "~2.0"
 
   },

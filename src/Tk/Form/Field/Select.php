@@ -3,9 +3,7 @@ namespace Tk\Form\Field;
 
 use Tk\Form\Exception;
 
-
 /**
- * Class Text
  *
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/
@@ -14,15 +12,12 @@ use Tk\Form\Exception;
 class Select extends Iface
 {
     
-
     /**
      * @var array|Option[]
      */
     protected $options = array();
 
-
-
-
+    
     /**
      * @param string $name
      * @param Option\ArrayIterator $optionIterator
@@ -102,7 +97,6 @@ class Select extends Iface
         return $this;
     }
     
-    
     /**
      * Compare a value and see if it is selected.
      *
@@ -127,8 +121,6 @@ class Select extends Iface
         return false;
     }
     
-    
-    
     /**
      * Get the element HTML
      *
@@ -136,13 +128,7 @@ class Select extends Iface
      */
     public function getHtml()
     {
-        $xhtml = <<<XHTML
-<select var="element">
-  <option repeat="option" var="option"></option>
-</select>
-XHTML;
-        $t = \Dom\Loader::load($xhtml);
-        
+        $t = $this->__makeTemplate();
         if (!$t->keyExists('var', 'element')) {
             return '';
         }
@@ -166,9 +152,7 @@ XHTML;
         if ($this->isRequired()) {
             $t->setAttr('element', 'required', 'required');
         }
-
-
-
+        
         /** @var \Tk\Form\Field\Option $option */
         foreach($this->getOptions() as $option) {
             $tOpt = $t->getRepeat('option');
@@ -179,6 +163,7 @@ XHTML;
             if ($option->getLabel()) {
                 $tOpt->setAttr('option', 'label', $option->getLabel());
             }
+            
             // TODO: render optgroup
 
             $tOpt->setAttr('option', 'value', $option->getValue());
@@ -189,25 +174,28 @@ XHTML;
             $tOpt->appendRepeat();
         }
 
-
         if ($this->isArray()) {
             $t->setAttr('element', 'multiple', 'multiple');
         }
-        
-        
-        
-
-        // set the field value
-//        if ($t->getVarElement('element')->nodeName == 'textarea') {
-//            $value = $this->getValue();
-//            if ($value && !is_array($value)) {
-//                $t->insertText('element', $value);
-//            }
-//        }
-        
         
         return $t;
     }
     
     
+
+    /**
+     * makeTemplate
+     *
+     * @return \Dom\Template
+     */
+    public function __makeTemplate()
+    {
+        $xhtml = <<<XHTML
+<select var="element">
+  <option repeat="option" var="option"></option>
+</select>
+XHTML;
+        
+        return \Dom\Loader::load($xhtml);
+    }
 }

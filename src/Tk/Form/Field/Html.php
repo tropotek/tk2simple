@@ -8,9 +8,23 @@ namespace Tk\Form\Field;
  * @link http://www.tropotek.com/
  * @license Copyright 2015 Michael Mifsud
  */
-class Textarea extends Iface
+class Html extends Input
 {
     
+    protected $html = '';
+
+    /**
+     * __construct
+     *
+     * @param string $name
+     * @param string $html
+     */
+    public function __construct($name, $html = '')
+    {
+        parent::__construct($name);
+        $this->html = $html;
+    }
+
     /**
      * Get the element HTML
      *
@@ -18,19 +32,20 @@ class Textarea extends Iface
      */
     public function getHtml()
     {
-        $xhtml = <<<XHTML
-<textarea var="element"></textarea>
-XHTML;
-        $t = \Dom\Loader::load($xhtml);
+        $t = $this->__makeTemplate();
+        $this->removeCss('form-control');
 
-        
         if (!$t->keyExists('var', 'element')) {
             return '';
         }
 
         // Field name attribute
-        $t->setAttr('element', 'name', $this->getName());
-
+        if ($this->html instanceof \Dom\Template) {
+            $t->insertTemplate('element', $this->html);
+        } else {
+            $t->insertHtml('element', $this->html);
+        }
+        
         // All other attributes
         foreach($this->getAttrList() as $key => $val) {
             if ($val == '' || $val == null) {
@@ -43,22 +58,23 @@ XHTML;
         foreach($this->getCssList() as $v) {
             $t->addClass('element', $v);
         }
-
-        if ($this->isRequired()) {
-            $t->setAttr('element', 'required', 'required');
-        }
-
-        // set the field value
-        if ($t->getVarElement('element')->nodeName == 'textarea') {
-            $value = $this->getValue();
-            if ($value && !is_array($value)) {
-                $t->insertText('element', $value);
-            }
-        }
-        
         
         return $t;
     }
-    
-    
+
+
+
+    /**
+     * makeTemplate
+     *
+     * @return \Dom\Template
+     */
+    public function __makeTemplate()
+    {
+        $xhtml = <<<XHTML
+<div var="element"></div>
+XHTML;
+        return \Dom\Loader::load($xhtml);
+    }
+
 }
