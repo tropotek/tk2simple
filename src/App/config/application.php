@@ -33,10 +33,6 @@ $config['system.date.format.js'] = 'dd/mm/yyyy';
 
 
 
-
-
-
-
 /**
  * logger Helper function
  * Replacement for var_dump();
