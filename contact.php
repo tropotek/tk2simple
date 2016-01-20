@@ -254,7 +254,7 @@ $form->addField(new Field\Input('name'));
 $form->addField(new Field\Input('email'));
 
 //$opts = \Tk\Form\Field\Option\ArrayIterator::create(array('General', 'Services', 'Orders'));
-$opts = \Tk\Form\Field\Option\ArrayIterator::create(array('General' => 'General', 'Services' => 'Services', 'Orders' => 'Orders'));
+$opts = new \Tk\Form\Field\Option\ArrayIterator(array('General' => 'General', 'Services' => 'Services', 'Orders' => 'Orders'));
 
 $form->addField(new Field\Select('type[]', $opts));
 
