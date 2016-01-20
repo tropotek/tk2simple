@@ -80,13 +80,11 @@ if (isset($request['supervisorId'])) {
  */
 function doSubmit($form)
 {
-    vd($_REQUEST);
     $supervisor = $form->getParam('supervisor');
 
     if (!$supervisor instanceof \App\Db\Supervisor) return;
 
     // Load the object with data from the form using a helper object
-    //\App\Form\ModelLoader::loadObject($form, $supervisor);
     \App\Db\SupervisorMap::mapForm($form->getValues(), $supervisor);
     
     if (!$supervisor->title) {
@@ -100,13 +98,11 @@ function doSubmit($form)
     }
     
     if ($form->hasErrors()) {
-        vd($form->getErrors());
         return;
     }
     
     $supervisor->save();
     
-    vd($form->getTriggeredEvent()->getName());
     if ($form->getTriggeredEvent()->getName() == 'update')
         \App\Url::create('/supervisorManager.php')->redirect();
     \App\Url::create()->redirect();
