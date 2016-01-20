@@ -80,7 +80,7 @@ if (isset($request['supervisorId'])) {
  */
 function doSubmit($form)
 {
-    //vd($_REQUEST);
+    vd($_REQUEST);
     $supervisor = $form->getParam('supervisor');
 
     if (!$supervisor instanceof \App\Db\Supervisor) return;
@@ -100,18 +100,21 @@ function doSubmit($form)
     }
     
     if ($form->hasErrors()) {
+        vd($form->getErrors());
         return;
     }
     
     $supervisor->save();
     
+    vd($form->getTriggeredEvent()->getName());
     if ($form->getTriggeredEvent()->getName() == 'update')
         \App\Url::create('/supervisorManager.php')->redirect();
     \App\Url::create()->redirect();
 }
 
 
-$form = new Form('supervisorEdit', array('supervisor' => $supervisor));
+$form = new Form('supervisorEdit');
+$form->addParam('supervisor', $supervisor);
 $form->addCss('form-horizontal');
 $form->addField(new Field\Input('courseId'))->setRequired(true);
 $form->addField(new Field\Input('title'));
@@ -135,7 +138,6 @@ $form->addField(new Event\Button('update', 'doSubmit'));
 $form->addField(new Event\Button('save', 'doSubmit'));
 $form->addField(new Event\Link('cancel', \App\Url::create('/supervisorManager.php')));
 
-$form->addField(new Field\Hidden('shbox', 'shvalue'));
 
 $form->load((array)$supervisor);
 
