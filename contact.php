@@ -248,7 +248,7 @@ MSG;
 
 $form = new Form('contactForm');
 
-$opts = \Tk\Form\Field\Option\ArrayIterator::create(array('Mr', 'Mrs', 'Miss'));
+$opts = new \Tk\Form\Field\Option\ArrayIterator(array('Mr', 'Mrs', 'Miss'));
 $form->addField(new Field\Select('title', $opts));
 $form->addField(new Field\Input('name'));
 $form->addField(new Field\Input('email'));
