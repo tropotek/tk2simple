@@ -25,6 +25,8 @@ $config['db.user'] = 'dev';
 $config['db.pass'] = 'dev007';
 
 
+
+
 // Debug settings
 $config['debug'] = true;
 if ($config['debug']) {

@@ -25,6 +25,8 @@ use \Tk\Form\Field;
  * @author Michael Mifsud <info@tropotek.com>
  * @link http://www.tropotek.com/
  * @license Copyright 2015 Michael Mifsud
+ * 
+ * @deprecated  Not sure we need this with the new form obnject.
  */
 class FormHelper
 {
@@ -57,4 +59,13 @@ class FormHelper
         return $form;
     }
 
+    
+    static function modelToArray($model)
+    {
+        
+    }
+    
+    
+    
+    
 }

@@ -1,7 +1,7 @@
 <?php
 use Tk\Form;
-use Tk\Form\Type;
-use \Tk\Form\Renderer\Dom\FieldFactory;
+use Tk\Form\Field;
+use Tk\Form\Event;
 
 include(dirname(__FILE__) . '/vendor/autoload.php');
 ob_start();
@@ -68,73 +68,84 @@ ob_start();
 <?php
 $buff = trim(ob_get_clean());
 $template = \Dom\Template::load($buff);
-
 $request = $_REQUEST;
+
 $supervisor = new \App\Db\Supervisor();
 if (isset($request['supervisorId'])) {
-  $supervisor = \App\Db\Supervisor::getMapper()->find($request['supervisorId']);
+    $supervisor = \App\Db\Supervisor::getMapper()->find($request['supervisorId']);
 }
-
 
 /**
  * @param \Tk\Form $form
  */
 function doSubmit($form)
 {
-  $supervisor = $form->getParam('supervisor');
+    $supervisor = $form->getParam('supervisor');
 
-  if (!$supervisor instanceof \App\Db\Supervisor) return;
+    if (!$supervisor instanceof \App\Db\Supervisor) return;
 
-  // Load the object with data from the form using a helper object
-  \App\Form\ModelLoader::loadObject($form, $supervisor);
-
-  if (!$supervisor->title) {
-    $form->addFieldError('title', 'Invalid field value.');
-  }
-  if (!$supervisor->status) {
-    $form->addFieldError('status', 'Invalid field value.');
-  }
-  if (!$supervisor->firstName) {
-    $form->addFieldError('firstName', 'Invalid field value.');
-  }
-
-  if ($form->hasErrors()) {
-    return;
-  }
-
-  $supervisor->save();
-
-  if ($form->getTriggeredEvent()->getName() == 'update')
-    \App\Url::create('/supervisorManager.php')->redirect();
-  \App\Url::create()->redirect();
+    // Load the object with data from the form using a helper object
+    \App\Db\SupervisorMap::mapForm($form->getValues(), $supervisor);
+    
+    if (!$supervisor->title) {
+        $form->addFieldError('title', 'Invalid field value.');
+    }
+    if (!$supervisor->status) {
+        $form->addFieldError('status', 'Invalid field value.');
+    }
+    if (!$supervisor->firstName) {
+        $form->addFieldError('firstName', 'Invalid field value.');
+    }
+    
+    if ($form->hasErrors()) {
+        return;
+    }
+    
+    $supervisor->save();
+    
+    if ($form->getTriggeredEvent()->getName() == 'update')
+        \App\Url::create('/supervisorManager.php')->redirect();
+    \App\Url::create()->redirect();
 }
 
 
-$form = new Form('supervisorEdit', array('supervisor' => $supervisor));
-
-$form->addField(FieldFactory::createText('courseId'))->setRequired(true);
-$form->addField(FieldFactory::createText('title'));
-$form->addField(FieldFactory::createText('firstName'));
-$form->addField(FieldFactory::createText('lastName'));
-$form->addField(FieldFactory::createText('graduationYear'));
+$form = new Form('supervisorEdit');
+$form->addParam('supervisor', $supervisor);
+$form->addCss('form-horizontal');
+$form->addField(new Field\Input('courseId'))->setRequired(true);
+$form->addField(new Field\Input('title'));
+$form->addField(new Field\Input('firstName'));
+$form->addField(new Field\Input('lastName'));
+$form->addField(new Field\Input('graduationYear'));
 $list = new \Tk\Form\Field\Option\ArrayIterator(array('-- Select --' => '', 'Approved' => 'approved', 'Not Approved' => 'not approved', 'Pending' => 'pending'));
-$form->addField(FieldFactory::createSelect('status', $list))->setRequired(true);
-$form->addField(FieldFactory::createCheckbox('private'));
+$form->addField(new Field\Select('status', $list));
+$form->addField(new Field\Checkbox('private'));
 
-$form->addField(FieldFactory::createButton('update', 'doSubmit')->setIcon('fa fa-mail-reply'));
-$form->addField(FieldFactory::createButton('save', 'doSubmit')->setIcon('fa fa-save'));
-$form->addField(FieldFactory::createLink('cancel', \App\Url::create('/supervisorManager.php')));
+//$form->addField(new Field\Html('renderer', '<p>This is a test. <b>Hello</b></p>'));
 
-$form->loadFromObject($supervisor);
-$form->execute($request);
+//$list = new \Tk\Form\Field\Option\ArrayIterator(array('approved', 'notApproved', 'pending'));
+//$form->addField(new Field\CheckboxGroup('groups', $list));
+
+//$list = new \Tk\Form\Field\Option\ArrayIterator(array('approved', 'notApproved', 'pending'));
+//$form->addField(new Field\RadioGroup('hams', $list))->setValue('notApproved');
+
+
+$form->addField(new Event\Button('update', 'doSubmit'));
+$form->addField(new Event\Button('save', 'doSubmit'));
+$form->addField(new Event\Link('cancel', \App\Url::create('/supervisorManager.php')));
+
+
+$form->load((array)$supervisor);
+
+$form->execute();
 
 
 // SHOW
-$fren = \Tk\Form\Renderer\Dom\Form::create($form)->show();
+$fren = \Tk\Form\Renderer\Dom::create($form)->show();
 $template->insertTemplate('content', $fren->getTemplate());
 
 if ($supervisor->title) {
-  $template->insertText('title', 'Edit Supervisor: ' . $supervisor->title . ' ' . $supervisor->firstName . ' ' . $supervisor->lastName);
+    $template->insertText('title', 'Edit Supervisor: ' . $supervisor->title . ' ' . $supervisor->firstName . ' ' . $supervisor->lastName);
 }
 
 
