@@ -48,11 +48,45 @@ class SupervisorMap extends \Tk\Db\Mapper
             'firstName' => $obj->firstName,
             'lastName' => $obj->lastName,
             'graduationYear' => $obj->graduationYear,
+            'status' => $obj->status,
             'private' => (int)$obj->private,
             'modified' => $obj->modified->format('Y-m-d H:i:s'),
             'created' => $obj->created->format('Y-m-d H:i:s')
         );
         return $arr;
+    }
+
+    /**
+     * @param array|\stdClass|\Tk\Db\Model $row
+     * @return Supervisor
+     */
+    static function mapForm($row, $obj = null)
+    {
+        if (!$obj) {
+            $obj = new Supervisor();
+        }
+        //$obj->id = $row['id'];
+        if (isset($row['courseId']))
+            $obj->courseId = $row['courseId'];
+        if (isset($row['title']))
+            $obj->title = $row['title'];
+        if (isset($row['firstName']))
+            $obj->firstName = $row['firstName'];
+        if (isset($row['lastName']))
+            $obj->lastName = $row['lastName'];
+        if (isset($row['graduationYear']))
+            $obj->graduationYear = $row['graduationYear'];
+        if (isset($row['status']))
+            $obj->status = $row['status'];
+        if (isset($row['private']))
+            $obj->private = ($row['private'] == 'private');
+
+        if (isset($row['modified']))
+            $obj->modified = new \DateTime($row['modified']);
+        if (isset($row['created']))
+            $obj->created = new \DateTime($row['created']);
+
+        return $obj;
     }
 
 
