@@ -7,7 +7,9 @@ namespace App;
  *
  * This should be called to setup the App lib environment
  *
- *  \App\Bootstrap::execute();
+ * ~~~php
+ *     \App\Bootstrap::execute();
+ * ~~~
  *
  * I am using the composer.json file to auto execute this file using the following entry:
  *
@@ -25,9 +27,9 @@ namespace App;
  * ~~~
  *
  *
- * @author Michael Mifsud <info@tropotek.com>
- * @link http://www.tropotek.com/
- * @license Copyright 2015 Michael Mifsud
+ * @author Michael Mifsud <info@tropotek.com>  
+ * @link http://www.tropotek.com/  
+ * @license Copyright 2015 Michael Mifsud  
  */
 class Bootstrap
 {
