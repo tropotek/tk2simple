@@ -20,7 +20,7 @@ $config['db.pass'] = 'dev007';
 // Debug settings
 $config['debug'] = false;
 if ($config['debug']) {
-    $config['system.log.path'] = '/home/' . trim(`whoami`) . '/log/error.log';
+    $config['system.log.path'] = '/home/user/log/error.log';
     $config['system.log.level'] = 'debug';
 }
 
