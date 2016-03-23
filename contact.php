@@ -241,8 +241,6 @@ MSG;
 }
 
 
-
-
 //$form = \App\Form\FormHelper::createForm($template->getForm('contactForm'));
 //$domForm = $template->getForm('contactForm');
 
@@ -255,7 +253,6 @@ $form->addField(new Field\Input('email'));
 
 //$opts = \Tk\Form\Field\Option\ArrayIterator::create(array('General', 'Services', 'Orders'));
 $opts = new \Tk\Form\Field\Option\ArrayIterator(array('General' => 'General', 'Services' => 'Services', 'Orders' => 'Orders'));
-
 $form->addField(new Field\Select('type[]', $opts));
 
 $form->addField(new Field\File('attach[]'));
@@ -268,8 +265,8 @@ $form->execute();
 
 
 // Render the form
-\Tk\Form\Renderer\DomStatic::create($form, $template)->show();
-
+$fren = new \Tk\Form\Renderer\DomStatic($form, $template);
+$fren->show();
 
 
 echo $template->toString();
