@@ -76,12 +76,13 @@ $template = \Dom\Template::load($buff);
 
 
 $table = new \Tk\Table('supervisorManager');
+
 //$table->addParam('renderer', \Tk\Table\Renderer\Dom\Table::create($table)); // Same as below, both will work
-\Tk\Table\Renderer\Dom\Table::create($table);
+$tren = \Tk\Table\Renderer\Dom\Table::create($table);
 
 $table->addCell(new Cell\Checkbox('id'));
 $table->addCell(new Cell\Text('courseId'));
-$table->addCell(new Cell\Text('firstName'))->addCellCss('key')->setUrl(\App\Url::create('/supervisorEdit.php'));
+$table->addCell(new Cell\Text('firstName'))->addCellCss('key')->setUrl(\Tk\Url::create('/supervisorEdit.php'));
 $table->addCell(new Cell\Text('lastName'));
 $table->addCell(new Cell\Text('graduationYear'));
 $table->addCell(new Cell\Text('status'));
@@ -100,7 +101,7 @@ $table->addAction(new \Tk\Table\Action\Csv());
 $users = \App\Db\Supervisor::getMapper()->findFiltered($table->getFilterValues(), $table->makeDbTool());
 $table->setList($users);
 
-$template->replaceTemplate('content', $table->getParam('renderer')->show());
+$template->replaceTemplate('content', $tren->show());
 
 
 echo $template->toString();

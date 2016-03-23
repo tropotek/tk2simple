@@ -57,7 +57,7 @@ ob_start();
 </nav>
 
   <div class="container-fluid">
-    <h1><a href="index.php">Create Supervisor</a></h1>
+    <h1><a href="index.php" var="title">Edit Supervisor</a></h1>
     <p>&nbsp;</p>
     <div class="content" var="content"></div>
     <p>&nbsp;</p>
@@ -104,35 +104,30 @@ function doSubmit($form)
     $supervisor->save();
     
     if ($form->getTriggeredEvent()->getName() == 'update')
-        \App\Url::create('/supervisorManager.php')->redirect();
-    \App\Url::create()->redirect();
+        \Tk\Url::create('/supervisorManager.php')->redirect();
+    \Tk\Url::create()->redirect();
 }
 
 
 $form = new Form('supervisorEdit');
 $form->addParam('supervisor', $supervisor);
 $form->addCss('form-horizontal');
-$form->addField(new Field\Input('courseId'))->setRequired(true);
-$form->addField(new Field\Input('title'));
-$form->addField(new Field\Input('firstName'));
-$form->addField(new Field\Input('lastName'));
-$form->addField(new Field\Input('graduationYear'));
+
+// Tab Group Name
+$form->addField(new Field\Input('title'))->setTabGroup('Name');
+$form->addField(new Field\Input('firstName'))->setTabGroup('Name');
+$form->addField(new Field\Input('lastName'))->setTabGroup('Name');
+
+// Tab Group Details
+$form->addField(new Field\Input('courseId'))->setRequired(true)->setTabGroup('Details');
+$form->addField(new Field\Input('graduationYear'))->setTabGroup('Details');
 $list = new \Tk\Form\Field\Option\ArrayIterator(array('-- Select --' => '', 'Approved' => 'approved', 'Not Approved' => 'not approved', 'Pending' => 'pending'));
-$form->addField(new Field\Select('status', $list));
-$form->addField(new Field\Checkbox('private'));
-
-//$form->addField(new Field\Html('renderer', '<p>This is a test. <b>Hello</b></p>'));
-
-//$list = new \Tk\Form\Field\Option\ArrayIterator(array('approved', 'notApproved', 'pending'));
-//$form->addField(new Field\CheckboxGroup('groups', $list));
-
-//$list = new \Tk\Form\Field\Option\ArrayIterator(array('approved', 'notApproved', 'pending'));
-//$form->addField(new Field\RadioGroup('hams', $list))->setValue('notApproved');
-
+$form->addField(new Field\Select('status', $list))->setTabGroup('Details');
+$form->addField(new Field\Checkbox('private'))->setTabGroup('Details');
 
 $form->addField(new Event\Button('update', 'doSubmit'));
 $form->addField(new Event\Button('save', 'doSubmit'));
-$form->addField(new Event\Link('cancel', \App\Url::create('/supervisorManager.php')));
+$form->addField(new Event\Link('cancel', \Tk\Url::create('/supervisorManager.php')));
 
 
 $form->load((array)$supervisor);
@@ -141,7 +136,8 @@ $form->execute();
 
 
 // SHOW
-$fren = \Tk\Form\Renderer\Dom::create($form)->show();
+$fren = new \Tk\Form\Renderer\Dom($form);
+$fren->show();
 $template->insertTemplate('content', $fren->getTemplate());
 
 if ($supervisor->title) {
