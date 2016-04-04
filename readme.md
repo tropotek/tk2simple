@@ -1,10 +1,10 @@
 # tk2simple :boom: 
 
-__Project:__ tk2simple 
-__Published:__ 01 Nov 2015
+__Project:__ tk2simple  
+__Published:__ 01 Nov 2015  
 __Web:__ <http://www.tropotek.com/>  
 __Authors:__ Michael Mifsud <http://www.tropotek.com/>  
-  
+
 A base site using the Tk2 framework on its own.
 
 ## Contents
