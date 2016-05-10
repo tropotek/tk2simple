@@ -84,9 +84,9 @@ class Bootstrap
         //$config['auth'] = new \Tk\Auth\Auth(new \Tk\Auth\Storage\SessionStorage($session));
 
         // * Dom Node Modifier
-        $dm = new \Tk\Dom\Modifier\Modifier();
-        $dm->add(new \Tk\Dom\Modifier\Filter\Path($config->getAppUrl()));
-        $dm->add(new \Tk\Dom\Modifier\Filter\JsLast());
+        $dm = new \Dom\Modifier\Modifier();
+        $dm->add(new \Dom\Modifier\Filter\Path($config->getAppUrl()));
+        $dm->add(new \Dom\Modifier\Filter\JsLast());
         $config['dom.modifier'] = $dm;
 
         // * Setup the Template loader, create adapters to look for templates as needed

@@ -40,10 +40,13 @@
     "require":  {
         "php": ">=5.3.3",
         "ttek/tk-installers": "~2.0",
+        "ttek/tk-framework": "~2.0",
+        "ttek/tk-database": "~1.0",
         "ttek/tk-domtemplate": "~2.0",
         "ttek/tk-form": "~2.0",
         "ttek/tk-table": "~2.0"
     },
     "require-dev":  {
+        "ttek/tk-debug": "~1.0"
     }
 }
