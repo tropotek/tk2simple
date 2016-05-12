@@ -49,7 +49,7 @@ class Bootstrap
         // Include any config overriding settings
         include($config->getSrcPath() . '/App/config/config.php');
 
-        \Tk\Url::$BASE_URL = $config->getAppUrl();
+        \Tk\Url::$BASE_URL = $config->getSiteUrl();
 
         // * Logger [use error_log()]
         ini_set('error_log', $config->getSystemLogPath());
@@ -57,9 +57,9 @@ class Bootstrap
         // * Database init
         try {
             $pdo = \Tk\Db\Pdo::createInstance($config->getDbName(), $config->getDbUser(), $config->getDbPass(), $config->getDbHost(), $config->getDbType(), $config->getGroup('db', true));
-            $pdo->setOnLogListener(function ($entry) {
-                error_log('[' . round($entry['time'], 4) . 'sec] ' . $entry['query']);
-            });
+//            $pdo->setOnLogListener(function ($entry) {
+//                error_log('[' . round($entry['time'], 4) . 'sec] ' . $entry['query']);
+//            });
             $config->setDb($pdo);
 
         } catch (\Exception $e) {
@@ -72,20 +72,25 @@ class Bootstrap
             return $config;
         }
 
-        // * Session
-        session_name('SID-' . md5($config->getAppPath()));
-        session_start();
-        $config['session'] = $_SESSION;
-
         // * Request
-        $config['request'] = $_REQUEST;
-
-        // * Authentication object
-        //$config['auth'] = new \Tk\Auth\Auth(new \Tk\Auth\Storage\SessionStorage($session));
+        $request = new \Tk\Request();
+        $config->setRequest($request);
+        
+        // * Cookie
+        $cookie = new \Tk\Cookie($config->getSiteUrl());
+        $config->setCookie($cookie);
+        
+        // * Session
+        $session = new \Tk\Session($config, $request);
+        //$session->start(new \Tk\Session\Adapter\Database( $config->getDb() ));
+        $session->start();
+        $config->setSession($session);
+        
+        
 
         // * Dom Node Modifier
         $dm = new \Dom\Modifier\Modifier();
-        $dm->add(new \Dom\Modifier\Filter\Path($config->getAppUrl()));
+        $dm->add(new \Dom\Modifier\Filter\Path($config->getSiteUrl()));
         $dm->add(new \Dom\Modifier\Filter\JsLast());
         $config['dom.modifier'] = $dm;
 
@@ -93,7 +98,7 @@ class Bootstrap
         /** @var \Dom\Loader $tl */
         $dl = \Dom\Loader::getInstance()->setParams($config);
         $dl->addAdapter(new \Dom\Loader\Adapter\DefaultLoader());
-        $dl->addAdapter(new \Dom\Loader\Adapter\ClassPath($config->getAppPath().'/xml'));
+        $dl->addAdapter(new \Dom\Loader\Adapter\ClassPath($config->getSitePath().'/xml'));
         $config['dom.loader'] = $dl;
 
         return $config;
