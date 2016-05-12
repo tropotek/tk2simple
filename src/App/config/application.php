@@ -10,21 +10,20 @@ $config = \Tk\Config::getInstance();
  * Config the session using PHP option names prepended with 'session.'
  * @see http://php.net/session.configuration
  */
-//$config['session.save_path'] = '';
-//$config['session.gc_maxlifetime'] = '1440';
-//$config['session.gc_divisor'] = '100';
-//$config['session.gc_probability'] = '1';
+include_once(__DIR__ . '/session.php');
+
 
 // Setup some basic admin page security
 $config['system.auth.username'] = 'admin';
 $config['system.auth.password'] = 'password';
 
+
 /**
  * DateTime Form input format
  * @link http://php.net/manual/en/datetime.createfromformat.php
  */
-$config['system.date.format.php'] = 'd/m/Y';
-$config['system.date.format.js'] = 'dd/mm/yyyy';
+//$config['system.date.format.php'] = 'd/m/Y';
+//$config['system.date.format.js'] = 'dd/mm/yyyy';
 // vd(\DateTime::createFromFormat('d/m/Y', '24/12/2012'));
 
 
@@ -33,26 +32,14 @@ $config['system.date.format.js'] = 'dd/mm/yyyy';
 
 
 
-/**
- * logger Helper function
- * Replacement for var_dump();
- * @todo Loock for a more appropriate place for this function????
- *
- * @return string
- */
-function vd() {
-    $args = func_get_args();
-    $trace = debug_backtrace();
-    $str = '';
-    if (count($args)) {
-        $str = basename($trace[0]['file']) . '[' . $trace[0]['line'] . ']: ' . "\n";
-        foreach ($args as $v) {
-            $str .= print_r($v, true) . "\n";
-            //\Tk\Config::getInstance()->getLog()->debug(basename($trace[0]['file']) . '[' . $trace[0]['line'] . ']: ' . print_r($v, true));
-        }
-        //\Tk\Config::getInstance()->getLog()->debug($str);
-        error_log($str);
-    }
-    return $str;
-}
 
+
+
+
+
+// To avoid var dump errors when debug lib not present
+// TODO: there could be a better way to handle this in the future 
+if (!class_exists('\Tk\Vd')) {
+    function vd() {}
+    function vdd() {}
+}
