@@ -54,9 +54,6 @@ class Bootstrap
         // * Logger [use error_log()]
         ini_set('error_log', $config->getSystemLogPath());
 
-
-
-
         \Tk\ErrorHandler::getInstance($config->getLog());
         
         // * Database init
@@ -93,7 +90,6 @@ class Bootstrap
         $config->setSession($session);
         
         
-
         // * Dom Node Modifier
         $dm = new \Dom\Modifier\Modifier();
         $dm->add(new \Dom\Modifier\Filter\Path($config->getSiteUrl()));

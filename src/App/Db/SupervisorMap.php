@@ -158,8 +158,6 @@ class SupervisorMap extends \Tk\Db\Mapper
             $where = substr($where, 0, -4);
         }
 
-        $t = $_REQUEST['sadaasdasdas'];
-
         return $this->selectFrom($from, $where, $tool);
     }
 
