@@ -49,7 +49,7 @@ class Bootstrap
         $config = \Tk\Config::getInstance();
 
         // Include any config overriding settings
-        include($config->getSrcPath() . '/App/config/config.php');
+        include($config->getSrcPath() . '/config/config.php');
 
         \Tk\Url::$BASE_URL = $config->getSiteUrl();
 
