@@ -30,6 +30,6 @@ $config['db.pass'] = 'dev007';
 // Debug settings
 $config['debug'] = true;
 if ($config['debug']) {
-    $config['system.log.path'] = '/home/' . trim(`whoami`) . '/log/error.log';
+    $config['system.log.path'] = '/home/godar/log/error.log';
     $config['system.log.level'] = 'debug';
 }
