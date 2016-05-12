@@ -28,7 +28,7 @@ class ModelLoader
         if (!$model instanceof Model) {
             throw new \Tk\Form\Exception('Invalid object type for parameter.');
         }
-        /* @var $element \Tk\Form\Type\Iface */
+        /* @var $element \Tk\Form\Field\Iface */
         foreach ($form->getFieldList() as $name => $element) {
             if (!$name) continue;
             $val = $element->getValue();

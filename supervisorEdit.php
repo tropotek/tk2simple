@@ -110,7 +110,7 @@ function doSubmit($form)
 
 
 $form = new Form('supervisorEdit');
-$form->addParam('supervisor', $supervisor);
+$form->setParam('supervisor', $supervisor);
 $form->addCss('form-horizontal');
 
 // Tab Group Name
