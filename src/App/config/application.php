@@ -32,26 +32,14 @@ $config['system.auth.password'] = 'password';
 
 
 
-/**
- * logger Helper function
- * Replacement for var_dump();
- * @todo Loock for a more appropriate place for this function????
- *
- * @return string
- */
-function vd() {
-    $args = func_get_args();
-    $trace = debug_backtrace();
-    $str = '';
-    if (count($args)) {
-        $str = basename($trace[0]['file']) . '[' . $trace[0]['line'] . ']: ' . "\n";
-        foreach ($args as $v) {
-            $str .= print_r($v, true) . "\n";
-            //\Tk\Config::getInstance()->getLog()->debug(basename($trace[0]['file']) . '[' . $trace[0]['line'] . ']: ' . print_r($v, true));
-        }
-        //\Tk\Config::getInstance()->getLog()->debug($str);
-        error_log($str);
-    }
-    return $str;
-}
 
+
+
+
+
+// To avoid var dump errors when debug lib not present
+// TODO: there could be a better way to handle this in the future 
+if (!class_exists('\Tk\Vd')) {
+    function vd() {}
+    function vdd() {}
+}
