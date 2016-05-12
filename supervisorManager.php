@@ -1,7 +1,5 @@
 <?php
-
 use Tk\Table\Cell;
-//use \Tk\Form\Renderer\Dom\FieldFactory;
 use Tk\Form\Field;
 
 include(dirname(__FILE__) . '/vendor/autoload.php');

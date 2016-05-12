@@ -54,6 +54,11 @@ class Bootstrap
         // * Logger [use error_log()]
         ini_set('error_log', $config->getSystemLogPath());
 
+
+
+
+        \Tk\ErrorHandler::getInstance($config->getLog());
+        
         // * Database init
         try {
             $pdo = \Tk\Db\Pdo::createInstance($config->getDbName(), $config->getDbUser(), $config->getDbPass(), $config->getDbHost(), $config->getDbType(), $config->getGroup('db', true));
@@ -66,6 +71,7 @@ class Bootstrap
             error_log('<p>' . $e->getMessage() . '</p>');
             exit;
         }
+        
 
         // Return if using cli (Command Line)
         if ($config->isCli()) {

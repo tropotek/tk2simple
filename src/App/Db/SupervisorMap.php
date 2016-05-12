@@ -1,5 +1,6 @@
 <?php
 namespace App\Db;
+use Tk\Exception;
 
 /**
  * Class UserMapper
@@ -156,6 +157,8 @@ class SupervisorMap extends \Tk\Db\Mapper
         if ($where) {
             $where = substr($where, 0, -4);
         }
+
+        $t = $_REQUEST['sadaasdasdas'];
 
         return $this->selectFrom($from, $where, $tool);
     }
