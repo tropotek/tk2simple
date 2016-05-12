@@ -48,6 +48,6 @@
         "ttek/tk-table": "~2.0"
     },
     "require-dev":  {
-        "ttek/tk-debug": "~1.0"
+        "ttek/tk-debug": "~2.0"
     }
 }

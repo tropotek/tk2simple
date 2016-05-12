@@ -196,7 +196,7 @@ function doSubmit($form)
     error_log('Contact form success.');
   }
 
-  \App\Url::create()->redirect();
+  \Tk\Url::create()->redirect();
 }
 
 
