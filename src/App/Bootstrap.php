@@ -51,7 +51,7 @@ class Bootstrap
         // Include any config overriding settings
         include($config->getSrcPath() . '/config/config.php');
 
-        \Tk\Url::$BASE_URL = $config->getSiteUrl();
+        \Tk\Uri::$BASE_URL_PATH = $config->getSiteUrl();
 
         // * Logger [use error_log()]
         ini_set('error_log', $config->getSystemLogPath());

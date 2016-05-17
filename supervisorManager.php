@@ -76,7 +76,7 @@ $table = new \Tk\Table('supervisorManager');
 
 $table->addCell(new Cell\Checkbox('id'));
 $table->addCell(new Cell\Text('courseId'));
-$table->addCell(new Cell\Text('firstName'))->addCellCss('key')->setUrl(\Tk\Url::create('/supervisorEdit.php'));
+$table->addCell(new Cell\Text('firstName'))->addCellCss('key')->setUrl(\Tk\Uri::create('/supervisorEdit.php'));
 $table->addCell(new Cell\Text('lastName'));
 $table->addCell(new Cell\Text('graduationYear'));
 $table->addCell(new Cell\Text('status'));

@@ -104,8 +104,8 @@ function doSubmit($form)
     $supervisor->save();
     
     if ($form->getTriggeredEvent()->getName() == 'update')
-        \Tk\Url::create('/supervisorManager.php')->redirect();
-    \Tk\Url::create()->redirect();
+        \Tk\Uri::create('/supervisorManager.php')->redirect();
+    \Tk\Uri::create()->redirect();
 }
 
 
@@ -127,7 +127,7 @@ $form->addField(new Field\Checkbox('private'))->setTabGroup('Details');
 
 $form->addField(new Event\Button('update', 'doSubmit'));
 $form->addField(new Event\Button('save', 'doSubmit'));
-$form->addField(new Event\Link('cancel', \Tk\Url::create('/supervisorManager.php')));
+$form->addField(new Event\Link('cancel', \Tk\Uri::create('/supervisorManager.php')));
 
 
 $form->load((array)$supervisor);
