@@ -1,6 +1,12 @@
 <?php
 namespace App\Db;
+
 use Tk\Exception;
+use \Tk\Db\Tool;
+use \Tk\Db\Map\Model;
+use \Tk\Db\Map\Mapper;
+use \Tk\Db\Map\ArrayObject;
+
 
 /**
  * Class UserMapper
@@ -10,11 +16,11 @@ use Tk\Exception;
  * @link http://www.tropotek.com/
  * @license Copyright 2015 Michael Mifsud
  */
-class SupervisorMap extends \Tk\Db\Mapper
+class SupervisorMap extends Mapper
 {
 
     /**
-     * @param array|\stdClass|\Tk\Db\Model $row
+     * @param array|\stdClass|Model $row
      * @return Supervisor
      */
     public function map($row)
@@ -37,7 +43,7 @@ class SupervisorMap extends \Tk\Db\Mapper
     }
 
     /**
-     * @param \stdClass|\Tk\Db\Model $obj
+     * @param \stdClass|Model $obj
      * @return array
      */
     public function unmap($obj)
@@ -58,7 +64,7 @@ class SupervisorMap extends \Tk\Db\Mapper
     }
 
     /**
-     * @param array|\stdClass|\Tk\Db\Model $row
+     * @param array|\stdClass|Model $row
      * @return Supervisor
      */
     static function mapForm($row, $obj = null)
@@ -93,8 +99,8 @@ class SupervisorMap extends \Tk\Db\Mapper
 
     /**
      * @param int $courseId
-     * @param \Tk\Db\Tool $tool
-     * @return \Tk\Db\ArrayObject
+     * @param Tool $tool
+     * @return ArrayObject
      */
     public function findByCourseId($courseId, $tool = null)
     {
@@ -105,8 +111,8 @@ class SupervisorMap extends \Tk\Db\Mapper
      * Find filtered records
      *
      * @param array $filter
-     * @param \Tk\Db\Tool $tool
-     * @return \Tk\Db\ArrayObject
+     * @param Tool $tool
+     * @return ArrayObject
      */
     public function findFiltered($filter = array(), $tool = null)
     {

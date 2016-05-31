@@ -9,7 +9,7 @@ namespace App\Db;
  * @link http://www.tropotek.com/
  * @license Copyright 2015 Michael Mifsud
  */
-class UserMap extends \Tk\Db\Mapper
+class UserMap extends \Tk\Db\Map\Mapper
 {
 
 

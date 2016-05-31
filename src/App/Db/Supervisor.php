@@ -8,7 +8,7 @@ namespace App\Db;
  * @link http://www.tropotek.com/
  * @license Copyright 2015 Michael Mifsud
  */
-class Supervisor extends \Tk\Db\Model
+class Supervisor extends \Tk\Db\Map\Model
 {
     /**
      * @var int

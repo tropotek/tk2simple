@@ -60,7 +60,7 @@ class Bootstrap
         
         // * Database init
         try {
-            $pdo = \Tk\Db\Pdo::createInstance($config->getDbName(), $config->getDbUser(), $config->getDbPass(), $config->getDbHost(), $config->getDbType(), $config->getGroup('db', true));
+            $pdo = \Tk\Db\Pdo::getInstance($config->getGroup('db'));
 //            $pdo->setOnLogListener(function ($entry) {
 //                error_log('[' . round($entry['time'], 4) . 'sec] ' . $entry['query']);
 //            });
@@ -78,7 +78,7 @@ class Bootstrap
         }
 
         // * Request
-        $request = new \Tk\Request();
+        $request = \Tk\Request::create();
         $config->setRequest($request);
         
         // * Cookie
@@ -94,7 +94,7 @@ class Bootstrap
         
         // * Dom Node Modifier
         $dm = new \Dom\Modifier\Modifier();
-        $dm->add(new \Dom\Modifier\Filter\Path($config->getSiteUrl()));
+        $dm->add(new \Dom\Modifier\Filter\UrlPath($config->getSiteUrl()));
         $dm->add(new \Dom\Modifier\Filter\JsLast());
         $config['dom.modifier'] = $dm;
 
