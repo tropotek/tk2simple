@@ -28,6 +28,7 @@ $config['system.auth.password'] = 'password';
 
 
 
+$config['date.timezone'] = 'Australia/Victoria';
 
 
 
