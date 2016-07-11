@@ -27,12 +27,10 @@ $config['system.auth.password'] = 'password';
 // vd(\DateTime::createFromFormat('d/m/Y', '24/12/2012'));
 
 
-
+/**
+ * Set the system timezone
+ */
 $config['date.timezone'] = 'Australia/Victoria';
-
-
-
-
 
 
 // To avoid var dump errors when debug lib not present

@@ -53,6 +53,10 @@ class Bootstrap
 
         \Tk\Uri::$BASE_URL_PATH = $config->getSiteUrl();
 
+        if ($config->has('date.timezone')) {
+            ini_set('date.timezone', $config->get('date.timezone'));
+        }
+
         // * Logger [use error_log()]
         ini_set('error_log', $config->getSystemLogPath());
 
