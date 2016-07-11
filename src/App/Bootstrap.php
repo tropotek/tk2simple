@@ -86,8 +86,9 @@ class Bootstrap
         $config->setCookie($cookie);
         
         // * Session
-        $session = new \Tk\Session($config, $request);
-        //$session->start(new \Tk\Session\Adapter\Database( $config->getDb() ));
+        $adapter = null;
+        //$adapter = new \Tk\Session\Adapter\Database($config->getDb());
+        $session = new \Tk\Session($adapter, $config, $request, $cookie);
         $session->start();
         $config->setSession($session);
         

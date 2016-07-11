@@ -49,13 +49,12 @@ body {
 
 /*********************************/
 /** \Tk\Form\Renderer\Dom\Form  **/
-
 .tk-form .tk-form-events .btn {
   margin-right: 5px;
 }
-
 .tk-form.form-inline .tk-form-fields,
 .tk-form.form-inline .tk-form-events {
+  margin-top: 10px;
   display: inline-block;
 }
 .tk-form.form-inline .tk-form-fields .form-group {
@@ -63,24 +62,10 @@ body {
 }
 
 
-.tk-form .control-label {
-  padding-right: 10px;
-}
-.tk-form.form-horizontal .control-label {
-  width: 10%;
-  text-align: right;
-  float: left;
-  display: block;
-}
-.tk-form.form-horizontal .controls {
-  line-height: 2;
-  float: left;
-  width: 85%;
+.tk-form.form-horizontal .form-group {
+  margin: 10px 0px;
 }
 .tk-form.form-horizontal .tk-form-events {
-  margin-left: 10%;
-  margin-top: 10px;
+  margin-top: 20px;
 }
-
-
 

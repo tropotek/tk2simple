@@ -59,7 +59,9 @@ ob_start();
   <div class="container-fluid">
     <h1><a href="index.php" var="title">Edit Supervisor</a></h1>
     <p>&nbsp;</p>
-    <div class="content" var="content"></div>
+    <div class="content" var="content">
+        <div var="form"></div>
+    </div>
     <p>&nbsp;</p>
   </div>
 
@@ -138,7 +140,7 @@ $form->execute();
 // SHOW
 $fren = new \Tk\Form\Renderer\Dom($form);
 $fren->show();
-$template->insertTemplate('content', $fren->getTemplate());
+$template->replaceTemplate('form', $fren->getTemplate());
 
 if ($supervisor->title) {
     $template->insertText('title', 'Edit Supervisor: ' . $supervisor->title . ' ' . $supervisor->firstName . ' ' . $supervisor->lastName);
