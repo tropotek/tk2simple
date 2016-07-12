@@ -93,7 +93,6 @@ class Bootstrap
         $adapter = null;
         //$adapter = new \Tk\Session\Adapter\Database($config->getDb());
         $session = new \Tk\Session($adapter, $config, $request, $cookie);
-        $session->start();
         $config->setSession($session);
         
         
