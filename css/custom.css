@@ -7,7 +7,6 @@ body {
 }
 
 
-
 /*************************************/
 /**  \Tk\Table\Renderer\Dom\Table   **/
 
@@ -21,16 +20,28 @@ body {
   white-space: nowrap;
 }
 
-
-.tk-table .orderAsc a {
-  text-decoration: underline;
-  color: darkviolet;
+.tk-table .orderAsc a:after {
+  content: "\e151";
+  font-size: 0.8em;
+  font-weight: normal;
+  padding: 0 0 0 5px;
+  vertical-align: middle;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.tk-table .orderDesc a {
-  text-decoration: underline;
-  color: darkgreen;
+.tk-table .orderDesc a:after {
+  content: "\e152";
+  font-size: 0.8em;
+  font-weight: normal;
+  padding: 0 0 0 5px;
+  vertical-align: middle;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
 
 .tk-table .tk-actions {
   margin: 5px 0px;
@@ -38,7 +49,6 @@ body {
 .tk-table .btn {
   margin-right: 5px;
 }
-
 
 .tk-table .pagination {
   margin: 0;
