@@ -45,8 +45,8 @@
         "ttek/tk-http": "~2.0",
         "ttek/tk-domtemplate": "~2.0",
         "ttek/tk-form": "~2.0",
-        "ttek/tk-debug": "~2.0",
-        "ttek/tk-table": "~2.0"
+        "ttek/tk-table": "~2.0",
+        "ttek/tk-mail": "~2.0"
     },
     "require-dev":  {
     }

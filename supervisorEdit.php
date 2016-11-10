@@ -1,9 +1,10 @@
 <?php
+include(dirname(__FILE__) . '/_prepend.php');
+
 use Tk\Form;
 use Tk\Form\Field;
 use Tk\Form\Event;
 
-include(dirname(__FILE__) . '/vendor/autoload.php');
 ob_start();
 ?>
 <!DOCTYPE html>
@@ -113,7 +114,7 @@ function doSubmit($form)
 
 $form = new Form('supervisorEdit');
 $form->setParam('supervisor', $supervisor);
-$form->addCss('form-horizontal');
+$form->addCssClass('form-horizontal');
 
 // Tab Group Name
 $form->addField(new Field\Input('title'))->setTabGroup('Name');

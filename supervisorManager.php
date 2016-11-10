@@ -1,8 +1,9 @@
 <?php
+include(dirname(__FILE__) . '/_prepend.php');
+
 use Tk\Table\Cell;
 use Tk\Form\Field;
 
-include(dirname(__FILE__) . '/vendor/autoload.php');
 ob_start();
 ?>
 <!DOCTYPE html>

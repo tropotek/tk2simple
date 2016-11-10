@@ -1,9 +1,10 @@
 <?php
+include(dirname(__FILE__) . '/_prepend.php');
+
 use Tk\Form;
 use Tk\Form\Field;
 use Tk\Form\Event;
 
-include(dirname(__FILE__) . '/vendor/autoload.php');
 ob_start();
 ?>
 <!DOCTYPE html>
@@ -188,12 +189,12 @@ function doSubmit($form)
   }
 
   if ($attach->hasFile()) {
-    $attach->moveUploadedFile($config->getDataPath() . '/contact/' . date('d-m-Y') . '-' . str_replace('@', '_', $values['email']));
+    //$attach->moveTo($config->getDataPath() . '/contact/' . date('d-m-Y') . '-' . str_replace('@', '_', $values['email']));
   }
   
   if (sendEmail($form)) {
-    //\App\Alert::getInstance()->addSuccess('<strong>Success!</strong> Your form has been sent.');
-    error_log('Contact form success.');
+    //\App\Alert::addSuccess('<strong>Success!</strong> Your form has been sent.');
+    vd('Contact form success.');
   }
 
   \Tk\Uri::create()->redirect();
