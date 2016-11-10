@@ -46,68 +46,60 @@ class Bootstrap
         }
 
         // Do not call \Tk\Config::getInstance() before this point
+
+        // If you use sub folders un your URL's you must define the paths manually
+        //$sitePath = dirname(__FILE__);
+        //$siteUrl = dirname($_SERVER['PHP_SELF']);
         $config = \Tk\Config::getInstance();
 
         // Include any config overriding settings
         include($config->getSrcPath() . '/config/config.php');
 
-        \Tk\Uri::$BASE_URL_PATH = $config->getSiteUrl();
-
-        if ($config->has('date.timezone')) {
+        if ($config->has('date.timezone'))
             ini_set('date.timezone', $config->get('date.timezone'));
+
+        \Tk\Uri::$BASE_URL_PATH = $config->getSiteUrl();
+        if ($config->isDebug()) {
+            \Dom\Template::$enableTracer = true;
         }
 
         // * Logger [use error_log()]
         ini_set('error_log', $config->getSystemLogPath());
 
         \Tk\ErrorHandler::getInstance($config->getLog());
-        
-        // * Database init
-        try {
-            $pdo = \Tk\Db\Pdo::getInstance($config->getGroup('db'));
-//            $pdo->setOnLogListener(function ($entry) {
-//                error_log('[' . round($entry['time'], 4) . 'sec] ' . $entry['query']);
-//            });
-            $config->setDb($pdo);
-
-        } catch (\Exception $e) {
-            error_log('<p>' . $e->getMessage() . '</p>');
-            exit;
-        }
-        
 
         // Return if using cli (Command Line)
         if ($config->isCli()) {
             return $config;
         }
 
-        // * Request
-        $request = \Tk\Request::create();
-        $config->setRequest($request);
-        
-        // * Cookie
-        $cookie = new \Tk\Cookie($config->getSiteUrl());
-        $config->setCookie($cookie);
-        
-        // * Session
-        $adapter = null;
-        //$adapter = new \Tk\Session\Adapter\Database($config->getDb());
-        $session = new \Tk\Session($adapter, $config, $request, $cookie);
-        $config->setSession($session);
-        
-        
-        // * Dom Node Modifier
-        $dm = new \Dom\Modifier\Modifier();
-        $dm->add(new \Dom\Modifier\Filter\UrlPath($config->getSiteUrl()));
-        $dm->add(new \Dom\Modifier\Filter\JsLast());
-        $config['dom.modifier'] = $dm;
 
-        // * Setup the Template loader, create adapters to look for templates as needed
-        /** @var \Dom\Loader $tl */
-        $dl = \Dom\Loader::getInstance()->setParams($config);
-        $dl->addAdapter(new \Dom\Loader\Adapter\DefaultLoader());
-        $dl->addAdapter(new \Dom\Loader\Adapter\ClassPath($config->getSitePath().'/xml'));
-        $config['dom.loader'] = $dl;
+        // --- HTTP only bootstrapping from here ---
+
+        if ($config->isDebug()) {
+            error_reporting(-1);
+            //error_reporting(E_ALL | E_STRICT);
+            ini_set('display_errors', 'Off');       // Only log errors?????
+        } else {
+            error_reporting(0);
+            ini_set('display_errors', 'Off');
+        }
+
+        // * Request
+        Factory::getRequest();
+        // * Cookie
+        Factory::getCookie();
+        // * Session
+        Factory::getSession();
+
+        // Initiate the default database connection
+        \App\Factory::getDb();
+
+        // initalise Dom Loader
+        \App\Factory::getDomLoader();
+
+        // Initiate the email gateway
+        \App\Factory::getEmailGateway();
 
         return $config;
     }

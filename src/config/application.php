@@ -12,21 +12,12 @@ $config = \Tk\Config::getInstance();
  */
 include_once(__DIR__ . '/session.php');
 
-
-// Setup some basic admin page security
-$config['system.auth.username'] = 'admin';
-$config['system.auth.password'] = 'password';
-
-
 /**
  * Set the system timezone
  */
 $config['date.timezone'] = 'Australia/Victoria';
 
 
-// To avoid var dump errors when debug lib not present
-// TODO: there could be a better way to handle this in the future 
-if (!class_exists('\Tk\Vd')) {
-    function vd() {}
-    function vdd() {}
-}
+// Setup some basic admin page security
+//$config['system.auth.username'] = 'admin';
+//$config['system.auth.password'] = 'password';

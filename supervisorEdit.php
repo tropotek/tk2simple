@@ -1,5 +1,5 @@
 <?php
-include(dirname(__FILE__) . '/_prepend.php');
+include(dirname(__FILE__) . '/vendor/autoload.php');
 
 use Tk\Form;
 use Tk\Form\Field;

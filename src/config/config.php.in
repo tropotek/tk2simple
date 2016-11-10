@@ -17,10 +17,10 @@ $config['db.user'] = 'dev';
 $config['db.pass'] = 'dev007';
 
 
-// Debug settings
+// Log/Debug settings
 $config['debug'] = false;
-if ($config['debug']) {
-    $config['system.log.path'] = '/home/user/log/error.log';
-    $config['system.log.level'] = 'debug';
-}
+$config['system.log.level'] = \Psr\Log\LogLevel::INFO;
+$config['system.log.path'] = '/home/godar/log/error.log';
+$config['system.debug.email'] = 'mifsudm@localhost';
+
 
