@@ -12,12 +12,18 @@ $config = \Tk\Config::getInstance();
  */
 include_once(__DIR__ . '/session.php');
 
-/**
- * Set the system timezone
+
+/*
+ * Change the system timezone
  */
-$config['date.timezone'] = 'Australia/Victoria';
+//$config['date.timezone'] = 'Australia/Victoria';
 
 
-// Setup some basic admin page security
-//$config['system.auth.username'] = 'admin';
-//$config['system.auth.password'] = 'password';
+/*
+ * If you use sub folders in your URL's you 
+ * must define the site root paths manually.
+ */
+//$config['site.path'] = dirname(dirname(dirname(__FILE__)));
+//$config['site.url'] = dirname($_SERVER['PHP_SELF']);
+
+

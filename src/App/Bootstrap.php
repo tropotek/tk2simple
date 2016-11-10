@@ -48,8 +48,6 @@ class Bootstrap
         // Do not call \Tk\Config::getInstance() before this point
 
         // If you use sub folders un your URL's you must define the paths manually
-        //$sitePath = dirname(__FILE__);
-        //$siteUrl = dirname($_SERVER['PHP_SELF']);
         $config = \Tk\Config::getInstance();
 
         // Include any config overriding settings
