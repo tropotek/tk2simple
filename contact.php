@@ -246,6 +246,7 @@ MSG;
 //$domForm = $template->getForm('contactForm');
 
 $form = new Form('contactForm');
+$form->addCssClass('form-horizontal');
 
 $opts = new \Tk\Form\Field\Option\ArrayIterator(array('Mr', 'Mrs', 'Miss'));
 $form->addField(new Field\Select('title', $opts));
@@ -256,7 +257,7 @@ $form->addField(new Field\Input('email'));
 $opts = new \Tk\Form\Field\Option\ArrayIterator(array('General' => 'General', 'Services' => 'Services', 'Orders' => 'Orders'));
 $form->addField(new Field\Select('type[]', $opts));
 
-$form->addField(new Field\File('attach[]'));
+$form->addField(new Field\File('attach[]', \App\Factory::getRequest()));
 $form->addField(new Field\Textarea('message'));
 
 $form->addField(new Event\Button('send', 'doSubmit'));

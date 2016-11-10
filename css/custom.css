@@ -79,3 +79,6 @@ body {
   margin-top: 20px;
 }
 
+#contactForm .form-group div.text-danger {
+  margin-left: 26%; padding: 10px 0px;
+}

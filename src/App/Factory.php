@@ -73,7 +73,6 @@ class Factory
     {
         if (!self::getConfig()->getEmailGateway()) {
             $gateway = new \Tk\Mail\Gateway(self::getConfig());
-            $gateway->setDispatcher(self::getEventDispatcher());
             self::getConfig()->setEmailGateway($gateway);
         }
         return self::getConfig()->getEmailGateway();

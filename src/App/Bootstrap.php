@@ -65,7 +65,7 @@ class Bootstrap
 
         // * Logger [use error_log()]
         ini_set('error_log', $config->getSystemLogPath());
-
+        error_log('------ Start ------');
         \Tk\ErrorHandler::getInstance($config->getLog());
 
         // Return if using cli (Command Line)
