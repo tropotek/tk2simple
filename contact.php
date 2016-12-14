@@ -219,8 +219,8 @@ function sendEmail($form)
     $attachCount = '';
 
   $file = $form->getField('attach');
-  if ($file->count()) {
-    $attachCount = 'Attachments: ' . $file->count();
+  if ($file->hasFile()) {
+    $attachCount = 'Attachments: ' . count($file->getUploadedFiles());
   }
 
     
