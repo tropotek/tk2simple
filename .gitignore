@@ -1,12 +1,12 @@
-/.htaccess
-.idea
-.directory
-*.swp
-*.bak
+/.idea
+/.directory
 /_notes
 /data
 /assets
 /vendor
-composer.lock
 /src/config/config.php
+composer.lock
+/.htaccess
+*.swp
+*.bak
 
