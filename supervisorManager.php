@@ -69,15 +69,15 @@ ob_start();
 $buff = trim(ob_get_clean());
 $template = \Dom\Template::load($buff);
 
-/** @var \Tk\Db\Pdo $db */
-$db = \Tk\Config::getInstance()->getDb();
+
+//$db = \Tk\Config::getInstance()->getDb();
 
 $table = new \Tk\Table('supervisorManager');
 //$table->addParam('renderer', \Tk\Table\Renderer\Dom\Table::create($table)); // (optional, instead of creating the renderer blow)
 
 $table->addCell(new Cell\Checkbox('id'));
 $table->addCell(new Cell\Text('courseId'));
-$table->addCell(new Cell\Text('firstName'))->addCellCss('key')->setUrl(\Tk\Uri::create('/supervisorEdit.php'));
+$table->addCell(new Cell\Text('firstName'))->addCss('key')->setUrl(\Tk\Uri::create('/supervisorEdit.php'));
 $table->addCell(new Cell\Text('lastName'));
 $table->addCell(new Cell\Text('graduationYear'));
 $table->addCell(new Cell\Text('status'));
@@ -90,8 +90,8 @@ $table->addFilter(new Field\Input('keywords'))->setLabel('')->setAttr('placehold
 $table->addFilter(new Field\Input('firstName'))->setLabel('')->setAttr('placeholder', 'First Name');
 
 // Add Actions?
-$table->addAction(new \Tk\Table\Action\Delete());
-$table->addAction(new \Tk\Table\Action\Csv($db));
+$table->addAction(\Tk\Table\Action\Delete::create());
+$table->addAction(\Tk\Table\Action\Csv::create());
 
 $list = \App\Db\Supervisor::getMapper()->findFiltered($table->getFilterValues(), $table->makeDbTool());
 $table->setList($list);

@@ -114,7 +114,7 @@ function doSubmit($form)
 
 $form = new Form('supervisorEdit');
 $form->setParam('supervisor', $supervisor);
-$form->addCssClass('form-horizontal');
+$form->addCss('form-horizontal');
 
 // Tab Group Name
 $form->addField(new Field\Input('title'))->setTabGroup('Name');

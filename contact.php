@@ -246,7 +246,7 @@ MSG;
 //$domForm = $template->getForm('contactForm');
 
 $form = new Form('contactForm');
-$form->addCssClass('form-horizontal');
+$form->addCss('form-horizontal');
 
 $opts = new \Tk\Form\Field\Option\ArrayIterator(array('Mr', 'Mrs', 'Miss'));
 $form->addField(new Field\Select('title', $opts));
