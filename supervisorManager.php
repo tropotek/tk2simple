@@ -72,7 +72,7 @@ $template = \Dom\Template::load($buff);
 
 //$db = \Tk\Config::getInstance()->getDb();
 
-$table = new \Tk\Table('supervisorManager');
+$table = \Tk\Table::create('supervisorManager');
 //$table->addParam('renderer', \Tk\Table\Renderer\Dom\Table::create($table)); // (optional, instead of creating the renderer blow)
 
 $table->addCell(new Cell\Checkbox('id'));

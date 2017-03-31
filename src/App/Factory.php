@@ -91,12 +91,12 @@ class Factory
      * @param string $name
      * @return mixed|Pdo
      */
-    static public function getDb($name = 'default')
+    static public function getDb($name = 'db')
     {
         $config = self::getConfig();
-        if (!$config->getDb() && $config->has('db.type')) {
+        if (!$config->getDb() && $config->has($name.'.type')) {
             try {
-                $pdo = Pdo::getInstance($name, $config->getGroup('db'));
+                $pdo = Pdo::getInstance($name, $config->getGroup($name, true));
                 $logger = $config->getLog();
 //                if ($logger && $config->isDebug()) {
 //                    $pdo->setOnLogListener(function ($entry) use ($logger) {

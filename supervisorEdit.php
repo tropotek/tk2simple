@@ -112,7 +112,7 @@ function doSubmit($form)
 }
 
 
-$form = new Form('supervisorEdit');
+$form = Form::create('supervisorEdit');
 $form->setParam('supervisor', $supervisor);
 $form->addCss('form-horizontal');
 

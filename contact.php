@@ -218,6 +218,7 @@ function sendEmail($form)
     $message = $form->getFieldValue('message');
     $attachCount = '';
 
+    /** @var \Tk\Form\Field\File $file */
   $file = $form->getField('attach');
   if ($file->hasFile()) {
     $attachCount = 'Attachments: ' . count($file->getUploadedFiles());
@@ -245,7 +246,7 @@ MSG;
 //$form = \App\Form\FormHelper::createForm($template->getForm('contactForm'));
 //$domForm = $template->getForm('contactForm');
 
-$form = new Form('contactForm');
+$form = Form::create('contactForm');
 $form->addCss('form-horizontal');
 
 $opts = new \Tk\Form\Field\Option\ArrayIterator(array('Mr', 'Mrs', 'Miss'));
@@ -257,7 +258,7 @@ $form->addField(new Field\Input('email'));
 $opts = new \Tk\Form\Field\Option\ArrayIterator(array('General' => 'General', 'Services' => 'Services', 'Orders' => 'Orders'));
 $form->addField(new Field\Select('type[]', $opts));
 
-$form->addField(new Field\File('attach[]', \App\Factory::getRequest()));
+$form->addField(new Field\File('attach[]'));
 $form->addField(new Field\Textarea('message'));
 
 $form->addField(new Event\Button('send', 'doSubmit'));
