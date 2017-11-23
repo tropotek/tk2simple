@@ -11,18 +11,30 @@ use Tk\Db\Pdo;
  */
 class Factory
 {
-    
+
     /**
-     * Get Config object or array
-     * 
+     * @var \Tk\Config
+     */
+    public static $config = null;
+
+
+    /**
+     * getConfig
+     *
      * @param string $sitePath
      * @param string $siteUrl
      * @return \Tk\Config
      */
-    static public function getConfig($sitePath = '', $siteUrl = '')
+    public static function getConfig($sitePath = '', $siteUrl = '')
     {
-        return \Tk\Config::getInstance($sitePath, $siteUrl);
+        if (!self::$config) {
+            self::$config = \Tk\Config::getInstance($sitePath, $siteUrl);
+            // Include any config overriding settings
+            include(self::$config->getSrcPath() . '/config/application.php');
+        }
+        return self::$config;
     }
+
     
 
     /**
@@ -153,7 +165,7 @@ class Factory
      * @return \Dom\Loader
      */
     static public function getDomLoader()
-    {   
+    {
         if (!self::getConfig()->getDomLoader()) {
             $dl = \Dom\Loader::getInstance()->setParams(self::getConfig()->all());
             $dl->addAdapter(new \Dom\Loader\Adapter\DefaultLoader());

@@ -11,6 +11,10 @@ $config = \Tk\Config::getInstance();
 
 include_once(__DIR__ . '/session.php');
 
+/**************************************
+ * Default app config values
+ **************************************/
+
 /*
  * If you use sub folders in your URL's you
  * must define the site root paths manually.
@@ -24,4 +28,13 @@ include_once(__DIR__ . '/session.php');
 //$config['date.timezone'] = 'Australia/Victoria';
 
 
+
+
+
+// ------------------------------------------------------------
+
+// Include any overriding config options
+include_once(__DIR__ . '/config.php');
+
+// ------------------------------------------------------------
 

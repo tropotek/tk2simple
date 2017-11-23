@@ -6,8 +6,6 @@
  */
 $config = \Tk\Config::getInstance();
 
-//Default config setup
-include_once(__DIR__ . '/application.php');
 
 // Database access
 $config['db.type'] = 'mysql';
@@ -19,8 +17,8 @@ $config['db.pass'] = 'password';
 
 // Log/Debug settings
 $config['debug'] = false;
-$config['system.log.path'] = '/home/user/log/error.log';
-$config['system.log.level'] = \Psr\Log\LogLevel::INFO;
+$config['log.path'] = '/home/user/log/error.log';
+$config['log.level'] = \Psr\Log\LogLevel::INFO;
 $config['system.debug.email'] = 'user@localhost';
 
 

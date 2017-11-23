@@ -19,10 +19,7 @@
     "autoload":  {
         "psr-0":  {
             "": "src/"
-        },
-        "files":  [
-            "src/App/Bootstrap.php"
-        ]
+        }
     },
     "scripts":  {
         "post-install-cmd":  [

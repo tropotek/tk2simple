@@ -1,6 +1,8 @@
 <?php
 namespace App;
 
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 
 /**
  * Class Bootstrap
@@ -46,42 +48,45 @@ class Bootstrap
         }
 
         // Do not call \Tk\Config::getInstance() before this point
+        $config = Factory::getConfig();
 
-        // If you use sub folders un your URL's you must define the paths manually
-        $config = \Tk\Config::getInstance();
+        // This maybe should be created in a Factory or DI Container....
+        if (is_readable($config->getLogPath())) {
+            if (!\App\Factory::getRequest()->has('nolog')) {
+                $logger = new Logger('system');
+                $handler = new StreamHandler($config->getLogPath(), $config->getLogLevel());
+                $formatter = new \Tk\Log\MonologLineFormatter();
+                $formatter->setScriptTime($config->getScriptTime());
+                $handler->setFormatter($formatter);
+                $logger->pushHandler($handler);
+                $config->setLog($logger);
+                \Tk\Log::getInstance($logger);
+            }
+        } else {
+            error_log('Log Path not readable: ' . $config->getLogPath());
+        }
 
-        // Include any config overriding settings
-        include($config->getSrcPath() . '/config/config.php');
 
-        if ($config->has('date.timezone'))
-            ini_set('date.timezone', $config->get('date.timezone'));
-
-        \Tk\Uri::$BASE_URL_PATH = $config->getSiteUrl();
-        if ($config->isDebug()) {
+        if (!$config->isDebug()) {
+            ini_set('display_errors', 'Off');
+            error_reporting(0);
+        } else {
             \Dom\Template::$enableTracer = true;
         }
 
-        // * Logger [use error_log()]
-        ini_set('error_log', $config->getSystemLogPath());
-        error_log('------ Start ------');
+        // Init framework error handler
         \Tk\ErrorHandler::getInstance($config->getLog());
 
+        // Initiate the default database connection
+        \App\Factory::getDb();
+        $config->replace(\Tk\Db\Data::create()->all());
+
+
         // Return if using cli (Command Line)
-        if ($config->isCli()) {
-            return $config;
-        }
+        if ($config->isCli()) return $config;
 
 
         // --- HTTP only bootstrapping from here ---
-
-        if ($config->isDebug()) {
-            error_reporting(-1);
-            //error_reporting(E_ALL | E_STRICT);
-            ini_set('display_errors', 'Off');       // Only log errors?????
-        } else {
-            error_reporting(0);
-            ini_set('display_errors', 'Off');
-        }
 
         // * Request
         Factory::getRequest();
@@ -100,6 +105,7 @@ class Bootstrap
         \App\Factory::getEmailGateway();
 
         return $config;
+
     }
 
 }

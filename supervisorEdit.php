@@ -1,5 +1,5 @@
 <?php
-include(dirname(__FILE__) . '/vendor/autoload.php');
+include(dirname(__FILE__) . '/_prepend.php');
 
 use Tk\Form;
 use Tk\Form\Field;
@@ -83,7 +83,7 @@ if (isset($request['supervisorId'])) {
  */
 function doSubmit($form)
 {
-    $supervisor = $form->getParam('supervisor');
+    $supervisor = $form->get('supervisor');
 
     if (!$supervisor instanceof \App\Db\Supervisor) return;
 
@@ -113,7 +113,7 @@ function doSubmit($form)
 
 
 $form = Form::create('supervisorEdit');
-$form->setParam('supervisor', $supervisor);
+$form->set('supervisor', $supervisor);
 $form->addCss('form-horizontal');
 
 // Tab Group Name
@@ -140,8 +140,7 @@ $form->execute();
 
 // SHOW
 $fren = new \Tk\Form\Renderer\Dom($form);
-$fren->show();
-$template->replaceTemplate('form', $fren->getTemplate());
+$template->replaceTemplate('form', $fren->show());
 
 if ($supervisor->title) {
     $template->insertText('title', 'Edit Supervisor: ' . $supervisor->title . ' ' . $supervisor->firstName . ' ' . $supervisor->lastName);
