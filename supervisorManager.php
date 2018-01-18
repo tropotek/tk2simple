@@ -99,5 +99,6 @@ $table->setList($list);
 $tren = \Tk\Table\Renderer\Dom\Table::create($table);
 $template->replaceTemplate('content', $tren->show());
 
+vd('Test Dump');
 
 echo $template->toString();

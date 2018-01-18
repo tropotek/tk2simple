@@ -39,20 +39,21 @@ class Bootstrap
     /**
      * This will also load dependant objects into the config, so this is the DI object for now.
      *
+     * @throws \Exception
      */
     static function execute()
     {
-        if (version_compare(phpversion(), '5.4.0', '<')) {
+        if (version_compare(phpversion(), '5.3.0', '<')) {
             // php version must be high enough to support traits
-            throw new \Exception('Your PHP5 version must be greater than 5.4.0 [Curr Ver: '.phpversion().']');
+            throw new \Exception('Your PHP5 version must be greater than 5.3.0 [Curr Ver: ' . phpversion() . ']. (Recommended: php 7.0+)');
         }
 
-        // Do not call \Tk\Config::getInstance() before this point
-        $config = Factory::getConfig();
+        $config = \App\Config::create();
+        include($config->getSrcPath() . '/config/application.php');
 
         // This maybe should be created in a Factory or DI Container....
         if (is_readable($config->getLogPath())) {
-            if (!\App\Factory::getRequest()->has('nolog')) {
+            if (!$config->getRequest()->has('nolog')) {
                 $logger = new Logger('system');
                 $handler = new StreamHandler($config->getLogPath(), $config->getLogLevel());
                 $formatter = new \Tk\Log\MonologLineFormatter();
@@ -66,7 +67,6 @@ class Bootstrap
             error_log('Log Path not readable: ' . $config->getLogPath());
         }
 
-
         if (!$config->isDebug()) {
             ini_set('display_errors', 'Off');
             error_reporting(0);
@@ -78,31 +78,21 @@ class Bootstrap
         \Tk\ErrorHandler::getInstance($config->getLog());
 
         // Initiate the default database connection
-        \App\Factory::getDb();
+        $config->getDb();
         $config->replace(\Tk\Db\Data::create()->all());
-
 
         // Return if using cli (Command Line)
         if ($config->isCli()) return $config;
 
-
         // --- HTTP only bootstrapping from here ---
 
-        // * Request
-        Factory::getRequest();
-        // * Cookie
-        Factory::getCookie();
         // * Session
-        Factory::getSession();
-
-        // Initiate the default database connection
-        \App\Factory::getDb();
-
-        // initalise Dom Loader
-        \App\Factory::getDomLoader();
+        $config->getSession();
 
         // Initiate the email gateway
-        \App\Factory::getEmailGateway();
+        $config->getEmailGateway();
+
+        $config->getDomLoader();
 
         return $config;
 
