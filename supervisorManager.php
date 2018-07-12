@@ -93,7 +93,7 @@ $table->addFilter(new Field\Input('firstName'))->setLabel('')->setAttr('placehol
 $table->addAction(\Tk\Table\Action\Delete::create());
 $table->addAction(\Tk\Table\Action\Csv::create());
 
-$list = \App\Db\Supervisor::getMapper()->findFiltered($table->getFilterValues(), $table->makeDbTool());
+$list = \App\Db\Supervisor::getMapper()->findFiltered($table->getFilterValues(), $table->getTool());
 $table->setList($list);
 
 $tren = \Tk\Table\Renderer\Dom\Table::create($table);
