@@ -75,30 +75,28 @@ $template = \Dom\Template::load($buff);
 $table = \Tk\Table::create('supervisorManager');
 //$table->addParam('renderer', \Tk\Table\Renderer\Dom\Table::create($table)); // (optional, instead of creating the renderer blow)
 
-$table->addCell(new Cell\Checkbox('id'));
-$table->addCell(new Cell\Text('courseId'));
-$table->addCell(new Cell\Text('firstName'))->addCss('key')->setUrl(\Tk\Uri::create('/supervisorEdit.php'));
-$table->addCell(new Cell\Text('lastName'));
-$table->addCell(new Cell\Text('graduationYear'));
-$table->addCell(new Cell\Text('status'));
-$table->addCell(new Cell\Boolean('private'));
-$table->addCell(new Cell\Date('modified'));
-$table->addCell(new Cell\Date('created'));
+$table->appendCell(new Cell\Checkbox('id'));
+$table->appendCell(new Cell\Text('courseId'));
+$table->appendCell(new Cell\Text('firstName'))->addCss('key')->setUrl(\Tk\Uri::create('/supervisorEdit.php'));
+$table->appendCell(new Cell\Text('lastName'));
+$table->appendCell(new Cell\Text('graduationYear'));
+$table->appendCell(new Cell\Text('status'));
+$table->appendCell(new Cell\Boolean('private'));
+$table->appendCell(new Cell\Date('modified'));
+$table->appendCell(new Cell\Date('created'));
 
 // Add filters
-$table->addFilter(new Field\Input('keywords'))->setLabel('')->setAttr('placeholder', 'Keywords');
-$table->addFilter(new Field\Input('firstName'))->setLabel('')->setAttr('placeholder', 'First Name');
+$table->appendFilter(new Field\Input('keywords'))->setLabel('')->setAttr('placeholder', 'Keywords');
+$table->appendFilter(new Field\Input('firstName'))->setLabel('')->setAttr('placeholder', 'First Name');
 
 // Add Actions?
-$table->addAction(\Tk\Table\Action\Delete::create());
-$table->addAction(\Tk\Table\Action\Csv::create());
+$table->appendAction(\Tk\Table\Action\Delete::create());
+$table->appendAction(\Tk\Table\Action\Csv::create());
 
-$list = \App\Db\Supervisor::getMapper()->findFiltered($table->getFilterValues(), $table->getTool());
+$list = \App\Db\SupervisorMap::create()->findFiltered($table->getFilterValues(), $table->getTool());
 $table->setList($list);
 
 $tren = \Tk\Table\Renderer\Dom\Table::create($table);
 $template->replaceTemplate('content', $tren->show());
-
-vd('Test Dump');
 
 echo $template->toString();

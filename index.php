@@ -78,8 +78,8 @@ $template = \Dom\Template::load($buff);
 
 $template->prependHtml('content', '<h2>This is the `Hello World` Dynamic text.</h2>');
 
-
-
+vd('Test Dump');
+\Tk\Log::warning('Test Log');
 
 
 echo $template->toString();

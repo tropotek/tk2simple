@@ -18,12 +18,21 @@ use \Tk\Db\Map\ArrayObject;
  */
 class SupervisorMap extends Mapper
 {
-
     /**
-     * @param array|\stdClass|Model $row
-     * @return Supervisor
+     * Map the data from a DB row to the required object
+     *
+     * Input: array (
+     *   'tblColumn' => 'columnValue'
+     * )
+     *
+     * Output: Should return an \stdClass or \Tk\Model object
+     *
+     * @param array $row
+     * @param null|mixed $obj If null then \stdClass will be returned
+     * @return \stdClass|\Tk\Db\Map\Model
+     * @since 2.0.0
      */
-    public function map($row)
+    public function map($row, $obj = null)
     {
         $obj = new Supervisor();
         $obj->id = $row['id'];
@@ -43,10 +52,21 @@ class SupervisorMap extends Mapper
     }
 
     /**
-     * @param \stdClass|Model $obj
+     * Un-map an object to an array ready for DB insertion.
+     * All fields and types must match the required DB types.
+     *
+     * Input: This requires a \Tk\Db\Map\Model or \stdClass object as input
+     *
+     * Output: array (
+     *   'tblColumn' => 'columnValue'
+     * )
+     *
+     * @param \Tk\Db\Map\Model|\stdClass $obj
+     * @param array $array
      * @return array
+     * @since 2.0.0
      */
-    public function unmap($obj)
+    public function unmap($obj, $array = array())
     {
         $arr = array(
             'id' => $obj->id,

@@ -75,7 +75,7 @@ $request = $_REQUEST;
 
 $supervisor = new \App\Db\Supervisor();
 if (isset($request['supervisorId'])) {
-    $supervisor = \App\Db\Supervisor::getMapper()->find($request['supervisorId']);
+    $supervisor = \App\Db\SupervisorMap::create()->find($request['supervisorId']);
 }
 
 /**
@@ -88,7 +88,7 @@ function doSubmit($form)
     if (!$supervisor instanceof \App\Db\Supervisor) return;
 
     // Load the object with data from the form using a helper object
-    \App\Db\SupervisorMap::mapForm($form->getValues(), $supervisor);
+    \App\Db\SupervisorMap::create()->mapForm($form->getValues(), $supervisor);
     
     if (!$supervisor->title) {
         $form->addFieldError('title', 'Invalid field value.');
@@ -115,22 +115,24 @@ function doSubmit($form)
 $form = Form::create('supervisorEdit');
 $form->set('supervisor', $supervisor);
 $form->addCss('form-horizontal');
+$form->setRenderer(new \Tk\Form\Renderer\Dom($form));
+$form->getRenderer()->setFieldGroupRenderer(new \Tk\Form\Renderer\FieldGroup($form));
 
 // Tab Group Name
-$form->addField(new Field\Input('title'))->setTabGroup('Name');
-$form->addField(new Field\Input('firstName'))->setTabGroup('Name');
-$form->addField(new Field\Input('lastName'))->setTabGroup('Name');
+$form->appendField(new Field\Input('title'));
+$form->appendField(new Field\Input('firstName'));
+$form->appendField(new Field\Input('lastName'));
 
 // Tab Group Details
-$form->addField(new Field\Input('courseId'))->setRequired(true)->setTabGroup('Details');
-$form->addField(new Field\Input('graduationYear'))->setTabGroup('Details');
+$form->appendField(new Field\Input('courseId'))->setRequired(true);
+$form->appendField(new Field\Input('graduationYear'));
 $list = new \Tk\Form\Field\Option\ArrayIterator(array('-- Select --' => '', 'Approved' => 'approved', 'Not Approved' => 'not approved', 'Pending' => 'pending'));
-$form->addField(new Field\Select('status', $list))->setTabGroup('Details');
-$form->addField(new Field\Checkbox('private'))->setTabGroup('Details');
+$form->appendField(new Field\Select('status', $list));
+$form->appendField(new Field\Checkbox('private'));
 
-$form->addField(new Event\Button('update', 'doSubmit'));
-$form->addField(new Event\Button('save', 'doSubmit'));
-$form->addField(new Event\Link('cancel', \Tk\Uri::create('/supervisorManager.php')));
+$form->appendField(new Event\Button('update', 'doSubmit'));
+$form->appendField(new Event\Button('save', 'doSubmit'));
+$form->appendField(new Event\Link('cancel', \Tk\Uri::create('/supervisorManager.php')));
 
 
 $form->load((array)$supervisor);
@@ -139,8 +141,8 @@ $form->execute();
 
 
 // SHOW
-$fren = new \Tk\Form\Renderer\Dom($form);
-$template->replaceTemplate('form', $fren->show());
+
+$template->appendTemplate('form', $form->getRenderer()->show());
 
 if ($supervisor->title) {
     $template->insertText('title', 'Edit Supervisor: ' . $supervisor->title . ' ' . $supervisor->firstName . ' ' . $supervisor->lastName);
