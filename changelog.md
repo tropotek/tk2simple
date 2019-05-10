@@ -1,6 +1,13 @@
 
 #CHANGELOG#
 
+Ver 1.2.0 [2019-05-11]:
+-------------------------------
+  - Upgraded base code for new libs
+  - Minor Code Updates
+  - dev
+
+
 Ver 1.0.1 [2018-05-29]:
 -------------------------------
 Minor Code Updates
