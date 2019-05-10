@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "271f6ce875698b3368c685573af3c134",
+    "content-hash": "f3c82fbe9fd0af96e08184db3f5cb9a1",
     "packages": [
         {
             "name": "leafo/scssphp",
@@ -260,102 +260,6 @@
             "time": "2017-08-28T11:42:41+00:00"
         },
         {
-            "name": "psr/cache",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/cache.git",
-                "reference": "78c5a01ddbf11cf731f1338a4f5aba23b14d5b47"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/cache/zipball/78c5a01ddbf11cf731f1338a4f5aba23b14d5b47",
-                "reference": "78c5a01ddbf11cf731f1338a4f5aba23b14d5b47",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Cache\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for caching libraries",
-            "keywords": [
-                "cache",
-                "psr",
-                "psr-6"
-            ],
-            "time": "2016-10-13T14:48:10+00:00"
-        },
-        {
-            "name": "psr/http-message",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP messages",
-            "homepage": "https://github.com/php-fig/http-message",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "time": "2016-08-06T14:39:51+00:00"
-        },
-        {
             "name": "psr/log",
             "version": "dev-master",
             "source": {
@@ -403,110 +307,37 @@
             "time": "2018-11-21T13:42:00+00:00"
         },
         {
-            "name": "symfony/console",
-            "version": "3.4.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/console.git",
-                "reference": "59142c1c3ff0893f1837e6c2f5ca2d1d20d540be"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/59142c1c3ff0893f1837e6c2f5ca2d1d20d540be",
-                "reference": "59142c1c3ff0893f1837e6c2f5ca2d1d20d540be",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/debug": "~2.8|~3.0|~4.0",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "conflict": {
-                "symfony/dependency-injection": "<3.4",
-                "symfony/process": "<3.3"
-            },
-            "provide": {
-                "psr/log-implementation": "1.0"
-            },
-            "require-dev": {
-                "psr/log": "~1.0",
-                "symfony/config": "~3.3|~4.0",
-                "symfony/dependency-injection": "~3.4|~4.0",
-                "symfony/event-dispatcher": "~2.8|~3.0|~4.0",
-                "symfony/lock": "~3.4|~4.0",
-                "symfony/process": "~3.3|~4.0"
-            },
-            "suggest": {
-                "psr/log": "For using the console logger",
-                "symfony/event-dispatcher": "",
-                "symfony/lock": "",
-                "symfony/process": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Console\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Console Component",
-            "homepage": "https://symfony.com",
-            "time": "2019-02-18T18:44:35+00:00"
-        },
-        {
-            "name": "symfony/debug",
+            "name": "symfony/http-foundation",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/debug.git",
-                "reference": "091fd557df9422472f877c3034b8454273b4a5b3"
+                "url": "https://github.com/symfony/http-foundation.git",
+                "reference": "ac1103f80b2cd64b707401936c3cf12961d882c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/debug/zipball/091fd557df9422472f877c3034b8454273b4a5b3",
-                "reference": "091fd557df9422472f877c3034b8454273b4a5b3",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/ac1103f80b2cd64b707401936c3cf12961d882c9",
+                "reference": "ac1103f80b2cd64b707401936c3cf12961d882c9",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1.3",
-                "psr/log": "~1.0"
-            },
-            "conflict": {
-                "symfony/http-kernel": "<3.4"
+                "symfony/mime": "^4.3",
+                "symfony/polyfill-mbstring": "~1.1"
             },
             "require-dev": {
-                "symfony/http-kernel": "~3.4|~4.0"
+                "predis/predis": "~1.0",
+                "symfony/expression-language": "~3.4|~4.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.3-dev"
+                    "dev-master": "4.4-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Component\\Debug\\": ""
+                    "Symfony\\Component\\HttpFoundation\\": ""
                 },
                 "exclude-from-classmap": [
                     "/Tests/"
@@ -526,50 +357,42 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony Debug Component",
+            "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-02-19T18:29:52+00:00"
+            "time": "2019-05-09T07:23:25+00:00"
         },
         {
-            "name": "symfony/event-dispatcher",
-            "version": "3.4.x-dev",
+            "name": "symfony/mime",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "ed5be1663fa66623b3a7004d5d51a14c4045399b"
+                "url": "https://github.com/symfony/mime.git",
+                "reference": "fe0e79336bf9015de6551b11ca5426f101a13d16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/ed5be1663fa66623b3a7004d5d51a14c4045399b",
-                "reference": "ed5be1663fa66623b3a7004d5d51a14c4045399b",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/fe0e79336bf9015de6551b11ca5426f101a13d16",
+                "reference": "fe0e79336bf9015de6551b11ca5426f101a13d16",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8"
-            },
-            "conflict": {
-                "symfony/dependency-injection": "<3.3"
+                "php": "^7.1.3",
+                "symfony/polyfill-intl-idn": "^1.10",
+                "symfony/polyfill-mbstring": "^1.0"
             },
             "require-dev": {
-                "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0|~4.0",
-                "symfony/dependency-injection": "~3.3|~4.0",
-                "symfony/expression-language": "~2.8|~3.0|~4.0",
-                "symfony/stopwatch": "~2.8|~3.0|~4.0"
-            },
-            "suggest": {
-                "symfony/dependency-injection": "",
-                "symfony/http-kernel": ""
+                "egulias/email-validator": "^2.0",
+                "symfony/dependency-injection": "~3.4|^4.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "4.4-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Component\\EventDispatcher\\": ""
+                    "Symfony\\Component\\Mime\\": ""
                 },
                 "exclude-from-classmap": [
                     "/Tests/"
@@ -589,9 +412,75 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony EventDispatcher Component",
+            "description": "A library to manipulate MIME messages",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T13:27:11+00:00"
+            "keywords": [
+                "mime",
+                "mime-type"
+            ],
+            "time": "2019-05-09T07:23:25+00:00"
+        },
+        {
+            "name": "symfony/polyfill-intl-idn",
+            "version": "v1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-intl-idn.git",
+                "reference": "c766e95bec706cdd89903b1eda8afab7d7a6b7af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/c766e95bec706cdd89903b1eda8afab7d7a6b7af",
+                "reference": "c766e95bec706cdd89903b1eda8afab7d7a6b7af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/polyfill-mbstring": "^1.3",
+                "symfony/polyfill-php72": "^1.9"
+            },
+            "suggest": {
+                "ext-intl": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Idn\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                },
+                {
+                    "name": "Laurent Bassin",
+                    "email": "laurent@bassin.info"
+                }
+            ],
+            "description": "Symfony polyfill for intl's idn_to_ascii and idn_to_utf8 functions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "idn",
+                "intl",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2019-03-04T13:44:35+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -653,53 +542,34 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
-            "name": "symfony/translation",
-            "version": "3.4.x-dev",
+            "name": "symfony/polyfill-php72",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/translation.git",
-                "reference": "7717a0909fed3cdc2fae454b4da70f0973a5ea70"
+                "url": "https://github.com/symfony/polyfill-php72.git",
+                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/7717a0909fed3cdc2fae454b4da70f0973a5ea70",
-                "reference": "7717a0909fed3cdc2fae454b4da70f0973a5ea70",
+                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/ab50dcf166d5f577978419edd37aa2bb8eabce0c",
+                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9|>=7.0.8",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "conflict": {
-                "symfony/config": "<2.8",
-                "symfony/dependency-injection": "<3.4",
-                "symfony/yaml": "<3.4"
-            },
-            "require-dev": {
-                "psr/log": "~1.0",
-                "symfony/config": "~2.8|~3.0|~4.0",
-                "symfony/dependency-injection": "~3.4|~4.0",
-                "symfony/finder": "~2.8|~3.0|~4.0",
-                "symfony/intl": "^2.8.18|^3.2.5|~4.0",
-                "symfony/yaml": "~3.4|~4.0"
-            },
-            "suggest": {
-                "psr/log-implementation": "To use logging capability in translator",
-                "symfony/config": "",
-                "symfony/yaml": ""
+                "php": ">=5.3.3"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4-dev"
+                    "dev-master": "1.11-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Symfony\\Component\\Translation\\": ""
+                    "Symfony\\Polyfill\\Php72\\": ""
                 },
-                "exclude-from-classmap": [
-                    "/Tests/"
+                "files": [
+                    "bootstrap.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -708,39 +578,45 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
                 },
                 {
                     "name": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony Translation Component",
+            "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
             "homepage": "https://symfony.com",
-            "time": "2019-02-18T12:35:29+00:00"
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2019-02-06T07:57:58+00:00"
         },
         {
             "name": "ttek/tk-database",
-            "version": "dev-master",
+            "version": "dev-3beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-database.git",
-                "reference": "af52d3ff39d7613d966b0df39edbeae6174cfbe0"
+                "reference": "f101dcef19289c19bc65052a2f5bbaa3ec297bbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-database/zipball/af52d3ff39d7613d966b0df39edbeae6174cfbe0",
-                "reference": "af52d3ff39d7613d966b0df39edbeae6174cfbe0",
+                "url": "https://api.github.com/repos/tropotek/tk-database/zipball/f101dcef19289c19bc65052a2f5bbaa3ec297bbb",
+                "reference": "f101dcef19289c19bc65052a2f5bbaa3ec297bbb",
                 "shasum": ""
             },
             "require": {
-                "ttek/tk-framework": "~2.0"
+                "ttek/tk-framework": "~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -765,31 +641,31 @@
                 "database",
                 "tropotek"
             ],
-            "time": "2019-02-11T03:13:24+00:00"
+            "time": "2019-05-09T22:26:23+00:00"
         },
         {
             "name": "ttek/tk-domtemplate",
-            "version": "dev-master",
+            "version": "dev-3beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-domtemplate.git",
-                "reference": "4174b89a06b330e8a673b4858e6301f12d6d36e5"
+                "reference": "b1aa3dea67352865db8fc13d0e39c3ddaaf08f21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-domtemplate/zipball/4174b89a06b330e8a673b4858e6301f12d6d36e5",
-                "reference": "4174b89a06b330e8a673b4858e6301f12d6d36e5",
+                "url": "https://api.github.com/repos/tropotek/tk-domtemplate/zipball/b1aa3dea67352865db8fc13d0e39c3ddaaf08f21",
+                "reference": "b1aa3dea67352865db8fc13d0e39c3ddaaf08f21",
                 "shasum": ""
             },
             "require": {
                 "leafo/scssphp": "~0.7.7",
                 "oyejorge/less.php": "~1.6",
-                "php": ">=5.3.0"
+                "php": ">=7.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -814,31 +690,29 @@
                 "dom-template",
                 "tropotek"
             ],
-            "time": "2019-01-31T20:40:15+00:00"
+            "time": "2019-05-09T22:25:49+00:00"
         },
         {
             "name": "ttek/tk-form",
-            "version": "dev-master",
+            "version": "dev-3beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-form.git",
-                "reference": "6a1bd3bf2d33a57128804c749b2caa3e08c69b40"
+                "reference": "7b92615743b3b1734e0afd7287b25dfc7e3d3c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-form/zipball/6a1bd3bf2d33a57128804c749b2caa3e08c69b40",
-                "reference": "6a1bd3bf2d33a57128804c749b2caa3e08c69b40",
+                "url": "https://api.github.com/repos/tropotek/tk-form/zipball/7b92615743b3b1734e0afd7287b25dfc7e3d3c9a",
+                "reference": "7b92615743b3b1734e0afd7287b25dfc7e3d3c9a",
                 "shasum": ""
             },
             "require": {
-                "ttek/tk-domtemplate": "~2.0",
-                "ttek/tk-framework": "~2.0",
-                "ttek/tk-mvc": "~2.0"
+                "ttek/tk-framework": "~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -862,31 +736,32 @@
                 "form",
                 "tropotek"
             ],
-            "time": "2019-02-14T22:40:34+00:00"
+            "time": "2019-05-09T23:31:24+00:00"
         },
         {
             "name": "ttek/tk-framework",
-            "version": "dev-master",
+            "version": "dev-3beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-framework.git",
-                "reference": "e2ac30d0ed02c2efb05bf9d960a1986f8ce77b69"
+                "reference": "1f482fc37fba91f49f31f7fd0fa58234c85bf930"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-framework/zipball/e2ac30d0ed02c2efb05bf9d960a1986f8ce77b69",
-                "reference": "e2ac30d0ed02c2efb05bf9d960a1986f8ce77b69",
+                "url": "https://api.github.com/repos/tropotek/tk-framework/zipball/1f482fc37fba91f49f31f7fd0fa58234c85bf930",
+                "reference": "1f482fc37fba91f49f31f7fd0fa58234c85bf930",
                 "shasum": ""
             },
             "require": {
                 "monolog/monolog": "^1.0",
-                "php": ">=5.3.0",
-                "psr/log": "^1.0"
+                "psr/log": "^1.0",
+                "symfony/http-foundation": "^4.2",
+                "ttek/tk-installers": "~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -896,6 +771,9 @@
                 "files": [
                     "Tk/Exception.php",
                     "functions/varDump.php"
+                ],
+                "exclude-from-classmap": [
+                    "/tests/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -910,80 +788,29 @@
                 }
             ],
             "description": "Tropotek Framework V2",
-            "homepage": "http://www.tropotek.com/",
             "keywords": [
                 "Tk",
                 "framework",
                 "tropotek"
             ],
-            "time": "2019-02-06T22:36:56+00:00"
-        },
-        {
-            "name": "ttek/tk-http",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tropotek/tk-http.git",
-                "reference": "bcd701e4544413e221000a700ffd4b324a04c49d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-http/zipball/bcd701e4544413e221000a700ffd4b324a04c49d",
-                "reference": "bcd701e4544413e221000a700ffd4b324a04c49d",
-                "shasum": ""
-            },
-            "require": {
-                "psr/cache": "^1.0",
-                "psr/http-message": "^1.0",
-                "ttek/tk-framework": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Tk\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Mifsud",
-                    "email": "info@tropotek.com.au",
-                    "homepage": "http://www.tropotek.com/"
-                }
-            ],
-            "description": "HTTP library for the Tk lib",
-            "keywords": [
-                "Tk",
-                "http",
-                "tropotek"
-            ],
-            "time": "2019-01-13T21:46:26+00:00"
+            "time": "2019-05-10T02:40:38+00:00"
         },
         {
             "name": "ttek/tk-installers",
-            "version": "dev-master",
+            "version": "dev-3beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-installers.git",
-                "reference": "95969d76cea201d4e86cb6431b46f0332214cebe"
+                "reference": "b8d1cee9f72ad00a0eeac6ce987ad74e7681d860"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-installers/zipball/95969d76cea201d4e86cb6431b46f0332214cebe",
-                "reference": "95969d76cea201d4e86cb6431b46f0332214cebe",
+                "url": "https://api.github.com/repos/tropotek/tk-installers/zipball/b8d1cee9f72ad00a0eeac6ce987ad74e7681d860",
+                "reference": "b8d1cee9f72ad00a0eeac6ce987ad74e7681d860",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.1",
-                "php": ">=5.2.0"
+                "composer-plugin-api": "^1.1"
             },
             "type": "composer-plugin",
             "extra": {
@@ -993,7 +820,7 @@
                     "Tk\\Installer\\PluginPlugin"
                 ],
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -1018,32 +845,30 @@
                 "tools",
                 "tropotek"
             ],
-            "time": "2018-08-30T22:41:29+00:00"
+            "time": "2019-05-09T22:26:44+00:00"
         },
         {
             "name": "ttek/tk-mail",
-            "version": "dev-master",
+            "version": "dev-3beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-mail.git",
-                "reference": "5bbae60903c9dcaafc1644e1ad2cc3be828d88e2"
+                "reference": "50b16b7d8f0697e03a0f018fba841896e9fe27b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-mail/zipball/5bbae60903c9dcaafc1644e1ad2cc3be828d88e2",
-                "reference": "5bbae60903c9dcaafc1644e1ad2cc3be828d88e2",
+                "url": "https://api.github.com/repos/tropotek/tk-mail/zipball/50b16b7d8f0697e03a0f018fba841896e9fe27b4",
+                "reference": "50b16b7d8f0697e03a0f018fba841896e9fe27b4",
                 "shasum": ""
             },
             "require": {
                 "phpmailer/phpmailer": "~6.0",
-                "ttek/tk-domtemplate": "~2.0",
-                "ttek/tk-framework": "~2.0",
-                "ttek/tk-http": "~2.0"
+                "ttek/tk-framework": "~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -1067,82 +892,29 @@
                 "table",
                 "tropotek"
             ],
-            "time": "2018-10-03T03:41:38+00:00"
-        },
-        {
-            "name": "ttek/tk-mvc",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tropotek/tk-mvc.git",
-                "reference": "42fbead7ba5a2d63645fbea7a50b54f87816ea22"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-mvc/zipball/42fbead7ba5a2d63645fbea7a50b54f87816ea22",
-                "reference": "42fbead7ba5a2d63645fbea7a50b54f87816ea22",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/console": "~3.4",
-                "symfony/event-dispatcher": "~3.4",
-                "symfony/translation": "~3.4",
-                "ttek/tk-framework": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Tk\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Mifsud",
-                    "email": "info@tropotek.com.au",
-                    "homepage": "http://www.tropotek.com/"
-                }
-            ],
-            "description": "Model-View-Controller library for the Tk lib",
-            "keywords": [
-                "Tk",
-                "mvc",
-                "tropotek"
-            ],
-            "time": "2019-01-13T21:46:46+00:00"
+            "time": "2019-05-10T02:40:11+00:00"
         },
         {
             "name": "ttek/tk-table",
-            "version": "dev-master",
+            "version": "dev-3beta",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-table.git",
-                "reference": "282ec3a8ae7038611e236cc7aa563d05eb7c0509"
+                "reference": "83059319306234c0db7b92af056d2dab67d88a22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-table/zipball/282ec3a8ae7038611e236cc7aa563d05eb7c0509",
-                "reference": "282ec3a8ae7038611e236cc7aa563d05eb7c0509",
+                "url": "https://api.github.com/repos/tropotek/tk-table/zipball/83059319306234c0db7b92af056d2dab67d88a22",
+                "reference": "83059319306234c0db7b92af056d2dab67d88a22",
                 "shasum": ""
             },
             "require": {
-                "ttek/tk-database": "~2.0",
-                "ttek/tk-domtemplate": "~2.0",
-                "ttek/tk-framework": "~2.0",
-                "ttek/tk-mvc": "~2.0"
+                "ttek/tk-framework": "~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -1166,17 +938,68 @@
                 "table",
                 "tropotek"
             ],
-            "time": "2019-02-11T02:50:21+00:00"
+            "time": "2019-05-10T02:41:00+00:00"
         }
     ],
     "packages-dev": [],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "3.0.x-dev",
+            "alias_normalized": "3.0.9999999.9999999-dev",
+            "version": "dev-3beta",
+            "package": "ttek/tk-framework"
+        },
+        {
+            "alias": "3.0.x-dev",
+            "alias_normalized": "3.0.9999999.9999999-dev",
+            "version": "dev-3beta",
+            "package": "ttek/tk-installers"
+        },
+        {
+            "alias": "3.0.x-dev",
+            "alias_normalized": "3.0.9999999.9999999-dev",
+            "version": "dev-3beta",
+            "package": "ttek/tk-database"
+        },
+        {
+            "alias": "3.0.x-dev",
+            "alias_normalized": "3.0.9999999.9999999-dev",
+            "version": "dev-3beta",
+            "package": "ttek/tk-domtemplate"
+        },
+        {
+            "alias": "3.0.x-dev",
+            "alias_normalized": "3.0.9999999.9999999-dev",
+            "version": "dev-3beta",
+            "package": "ttek/tk-form"
+        },
+        {
+            "alias": "3.0.x-dev",
+            "alias_normalized": "3.0.9999999.9999999-dev",
+            "version": "dev-3beta",
+            "package": "ttek/tk-table"
+        },
+        {
+            "alias": "3.0.x-dev",
+            "alias_normalized": "3.0.9999999.9999999-dev",
+            "version": "dev-3beta",
+            "package": "ttek/tk-mail"
+        }
+    ],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "ttek/tk-framework": 20,
+        "ttek/tk-installers": 20,
+        "ttek/tk-database": 20,
+        "ttek/tk-domtemplate": 20,
+        "ttek/tk-form": 20,
+        "ttek/tk-table": 20,
+        "ttek/tk-mail": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.3"
+        "php": "^7.1.3"
     },
     "platform-dev": []
 }
