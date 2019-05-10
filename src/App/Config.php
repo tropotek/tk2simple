@@ -17,7 +17,7 @@ class Config extends \Tk\Config
     public function getRequest()
     {
         if (!parent::getRequest()) {
-            $obj = \Tk\Request::create();
+            $obj = \Tk\Request::createFromGlobals();
             //$obj->setAttribute('config', $this);
             parent::setRequest($obj);
         }
