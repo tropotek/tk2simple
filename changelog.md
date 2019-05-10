@@ -1,6 +1,11 @@
 
 #CHANGELOG#
 
+Ver 3.0.2 [2019-05-11]:
+-------------------------------
+  - Tagging branch master for release 3.0.0
+
+
 Ver 3.0.0 [2019-05-11]:
 -------------------------------
   - Tagging branch master for release 3.0.0
