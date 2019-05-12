@@ -5,7 +5,7 @@
     "keywords":  ["tropotek"],
     "time": "2019-04-09",
     "license": "MIT",
-    "version": "3.0.0",
+    "version": "master",
     "minimum-stability": "dev",
     "authors":  [
          {
@@ -35,13 +35,13 @@
     "require":  {
         "php": "^7.1.3",
 
-        "ttek/tk-framework": "dev-3beta as 3.0.x-dev",
-        "ttek/tk-installers": "dev-3beta as 3.0.x-dev",
-        "ttek/tk-database": "dev-3beta as 3.0.x-dev",
-        "ttek/tk-domtemplate": "dev-3beta as 3.0.x-dev",
-        "ttek/tk-form": "dev-3beta as 3.0.x-dev",
-        "ttek/tk-table": "dev-3beta as 3.0.x-dev",
-        "ttek/tk-mail": "dev-3beta as 3.0.x-dev"
+        "ttek/tk-framework": "~3.0",
+        "ttek/tk-installers": "~3.0",
+        "ttek/tk-database": "~3.0",
+        "ttek/tk-domtemplate": "~3.0",
+        "ttek/tk-form": "~3.0",
+        "ttek/tk-table": "~3.0",
+        "ttek/tk-mail": "~3.0"
     },
     "require-dev":  {
     }
