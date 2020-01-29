@@ -7,69 +7,17 @@
     "content-hash": "a80d88d87bb3227dfa1f74721a4b8ef4",
     "packages": [
         {
-            "name": "leafo/scssphp",
-            "version": "v0.7.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/leafo/scssphp.git",
-                "reference": "a384906af3d078e98b089d7d36f6ceab8703f7ff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leafo/scssphp/zipball/a384906af3d078e98b089d7d36f6ceab8703f7ff",
-                "reference": "a384906af3d078e98b089d7d36f6ceab8703f7ff",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.6",
-                "squizlabs/php_codesniffer": "~2.5"
-            },
-            "bin": [
-                "bin/pscss"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Leafo\\ScssPhp\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Leaf Corcoran",
-                    "email": "leafot@gmail.com",
-                    "homepage": "http://leafo.net"
-                }
-            ],
-            "description": "scssphp is a compiler for SCSS written in PHP.",
-            "homepage": "http://leafo.github.io/scssphp/",
-            "keywords": [
-                "css",
-                "less",
-                "sass",
-                "scss",
-                "stylesheet"
-            ],
-            "time": "2019-04-24T18:10:10+00:00"
-        },
-        {
             "name": "monolog/monolog",
             "version": "1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1b5341b08b1e54db0a3b6449683465d1d5bc4db8"
+                "reference": "fa82921994db851a8becaf3787a9e73c5976b6f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1b5341b08b1e54db0a3b6449683465d1d5bc4db8",
-                "reference": "1b5341b08b1e54db0a3b6449683465d1d5bc4db8",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fa82921994db851a8becaf3787a9e73c5976b6f1",
+                "reference": "fa82921994db851a8becaf3787a9e73c5976b6f1",
                 "shasum": ""
             },
             "require": {
@@ -134,92 +82,31 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2019-08-16T10:54:42+00:00"
-        },
-        {
-            "name": "oyejorge/less.php",
-            "version": "1.7.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/oyejorge/less.php.git",
-                "reference": "8f77f13bbc4d5997c76322523e1fb28376acf080"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oyejorge/less.php/zipball/8f77f13bbc4d5997c76322523e1fb28376acf080",
-                "reference": "8f77f13bbc4d5997c76322523e1fb28376acf080",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2"
-            },
-            "bin": [
-                "bin/lessc"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Less": "lib/"
-                },
-                "classmap": [
-                    "lessc.inc.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Matt Agar",
-                    "homepage": "https://github.com/agar"
-                },
-                {
-                    "name": "Martin Jantošovič",
-                    "homepage": "https://github.com/Mordred"
-                },
-                {
-                    "name": "Josh Schmidt",
-                    "homepage": "https://github.com/oyejorge"
-                }
-            ],
-            "description": "PHP port of the Javascript version of LESS http://lesscss.org",
-            "homepage": "http://lessphp.gpeasy.com",
-            "keywords": [
-                "css",
-                "less",
-                "less.js",
-                "lesscss",
-                "php",
-                "stylesheet"
-            ],
-            "time": "2014-03-04T18:49:54+00:00"
+            "time": "2019-12-20T14:15:16+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "6.0.x-dev",
+            "version": "v6.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "ea25dc122d22966b7dd4ca1083c63afeeb50dfcd"
+                "reference": "c5e61d0729507049cec9673aa1a679f9adefd683"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/ea25dc122d22966b7dd4ca1083c63afeeb50dfcd",
-                "reference": "ea25dc122d22966b7dd4ca1083c63afeeb50dfcd",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/c5e61d0729507049cec9673aa1a679f9adefd683",
+                "reference": "c5e61d0729507049cec9673aa1a679f9adefd683",
                 "shasum": ""
             },
             "require": {
                 "ext-ctype": "*",
+                "ext-filter": "*",
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "doctrine/annotations": "1.2.*",
-                "phpdocumentor/phpdocumentor": "2.*",
-                "phpunit/phpunit": "4.*",
-                "zendframework/zend-eventmanager": "3.0.*",
-                "zendframework/zend-i18n": "2.7.3",
-                "zendframework/zend-serializer": "2.7.*"
+                "doctrine/annotations": "^1.2",
+                "friendsofphp/php-cs-fixer": "^2.2",
+                "phpunit/phpunit": "^4.8 || ^5.7"
             },
             "suggest": {
                 "ext-mbstring": "Needed to send email in multibyte encoding charset",
@@ -237,16 +124,16 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL-2.1"
+                "LGPL-2.1-only"
             ],
             "authors": [
                 {
-                    "name": "Jim Jagielski",
-                    "email": "jimjag@gmail.com"
-                },
-                {
                     "name": "Marcus Bointon",
                     "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
                 },
                 {
                     "name": "Andy Prevost",
@@ -257,7 +144,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2017-08-28T11:42:41+00:00"
+            "time": "2019-12-10T11:17:38+00:00"
         },
         {
             "name": "psr/log",
@@ -265,12 +152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0"
+                "reference": "5628725d0e4d687e29575eb41f9d5ee7de33a84c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
-                "reference": "c4421fcac1edd5a324fda73e589a5cf96e52ffd0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/5628725d0e4d687e29575eb41f9d5ee7de33a84c",
+                "reference": "5628725d0e4d687e29575eb41f9d5ee7de33a84c",
                 "shasum": ""
             },
             "require": {
@@ -304,7 +191,68 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-21T13:42:00+00:00"
+            "time": "2019-11-12T16:45:05+00:00"
+        },
+        {
+            "name": "scssphp/scssphp",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scssphp/scssphp.git",
+                "reference": "5b3c9d704950d8f9637f5110c36c281ec47dc13c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/5b3c9d704950d8f9637f5110c36c281ec47dc13c",
+                "reference": "5b3c9d704950d8f9637f5110c36c281ec47dc13c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-json": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.3",
+                "squizlabs/php_codesniffer": "~2.5",
+                "twbs/bootstrap": "~4.3",
+                "zurb/foundation": "~6.5"
+            },
+            "bin": [
+                "bin/pscss"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ScssPhp\\ScssPhp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anthon Pang",
+                    "email": "apang@softwaredevelopment.ca",
+                    "homepage": "https://github.com/robocoder"
+                },
+                {
+                    "name": "Cédric Morin",
+                    "email": "cedric@yterium.com",
+                    "homepage": "https://github.com/Cerdic"
+                }
+            ],
+            "description": "scssphp is a compiler for SCSS written in PHP.",
+            "homepage": "http://scssphp.github.io/scssphp/",
+            "keywords": [
+                "css",
+                "less",
+                "sass",
+                "scss",
+                "stylesheet"
+            ],
+            "time": "2019-12-12T05:00:52+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -312,12 +260,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "3f9f40ff0fc507b9994f182c5598e632d0bdaf3c"
+                "reference": "2ae778ff4a1f8baba7724db1ca977ada3b796749"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/3f9f40ff0fc507b9994f182c5598e632d0bdaf3c",
-                "reference": "3f9f40ff0fc507b9994f182c5598e632d0bdaf3c",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/2ae778ff4a1f8baba7724db1ca977ada3b796749",
+                "reference": "2ae778ff4a1f8baba7724db1ca977ada3b796749",
                 "shasum": ""
             },
             "require": {
@@ -358,7 +306,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-07-23T09:50:15+00:00"
+            "time": "2019-11-11T12:54:47+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -366,12 +314,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17"
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/b42a2f66e8f1b15ccf25652c3424265923eb4f17",
-                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/34094cfa9abe1f0f14f48f490772db7a775559f2",
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2",
                 "shasum": ""
             },
             "require": {
@@ -383,7 +331,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -417,7 +365,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-08-06T08:03:45+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "ttek/tk-database",
@@ -425,15 +373,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-database.git",
-                "reference": "549c084249f6feae2edd7340a505c5d37d8dc1d5"
+                "reference": "ffa800772e652dfd4d6329c26c39b9bea34adac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-database/zipball/549c084249f6feae2edd7340a505c5d37d8dc1d5",
-                "reference": "549c084249f6feae2edd7340a505c5d37d8dc1d5",
+                "url": "https://api.github.com/repos/tropotek/tk-database/zipball/ffa800772e652dfd4d6329c26c39b9bea34adac6",
+                "reference": "ffa800772e652dfd4d6329c26c39b9bea34adac6",
                 "shasum": ""
             },
             "require": {
+                "ext-pdo": "*",
                 "ttek/tk-framework": "~3.0"
             },
             "type": "library",
@@ -464,7 +413,7 @@
                 "database",
                 "tropotek"
             ],
-            "time": "2019-07-23T22:26:59+00:00"
+            "time": "2020-01-29T00:07:13+00:00"
         },
         {
             "name": "ttek/tk-domtemplate",
@@ -472,19 +421,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-domtemplate.git",
-                "reference": "be5211867ee2f3ec5e8b8270144a7c2f7a2c361b"
+                "reference": "31b998747de962357eade3ea7e2b86e68d15c64c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-domtemplate/zipball/be5211867ee2f3ec5e8b8270144a7c2f7a2c361b",
-                "reference": "be5211867ee2f3ec5e8b8270144a7c2f7a2c361b",
+                "url": "https://api.github.com/repos/tropotek/tk-domtemplate/zipball/31b998747de962357eade3ea7e2b86e68d15c64c",
+                "reference": "31b998747de962357eade3ea7e2b86e68d15c64c",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
-                "leafo/scssphp": "0.7.*",
-                "oyejorge/less.php": "1.7.*",
-                "php": ">=7.0.0"
+                "ext-tidy": "*",
+                "php": ">=7.0.0",
+                "scssphp/scssphp": "1.0.*",
+                "wikimedia/less.php": "1.7.*"
             },
             "type": "library",
             "extra": {
@@ -514,7 +464,7 @@
                 "dom-template",
                 "tropotek"
             ],
-            "time": "2019-08-15T22:25:01+00:00"
+            "time": "2020-01-28T22:39:31+00:00"
         },
         {
             "name": "ttek/tk-form",
@@ -522,12 +472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-form.git",
-                "reference": "91b2c096ee209e2e8d2fef6a92b08face34d4eef"
+                "reference": "99ace78a4e26778d6d0f09872ce65a33d22811c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-form/zipball/91b2c096ee209e2e8d2fef6a92b08face34d4eef",
-                "reference": "91b2c096ee209e2e8d2fef6a92b08face34d4eef",
+                "url": "https://api.github.com/repos/tropotek/tk-form/zipball/99ace78a4e26778d6d0f09872ce65a33d22811c0",
+                "reference": "99ace78a4e26778d6d0f09872ce65a33d22811c0",
                 "shasum": ""
             },
             "require": {
@@ -560,7 +510,7 @@
                 "form",
                 "tropotek"
             ],
-            "time": "2019-08-20T21:54:34+00:00"
+            "time": "2020-01-29T00:06:58+00:00"
         },
         {
             "name": "ttek/tk-framework",
@@ -568,15 +518,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-framework.git",
-                "reference": "7d848c2f9c8578343a8e9648cdd34befcaf62ad1"
+                "reference": "6bdf5071e398bfe7b06dfa5bc4d6365c1715b668"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-framework/zipball/7d848c2f9c8578343a8e9648cdd34befcaf62ad1",
-                "reference": "7d848c2f9c8578343a8e9648cdd34befcaf62ad1",
+                "url": "https://api.github.com/repos/tropotek/tk-framework/zipball/6bdf5071e398bfe7b06dfa5bc4d6365c1715b668",
+                "reference": "6bdf5071e398bfe7b06dfa5bc4d6365c1715b668",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "monolog/monolog": "^1.0",
                 "psr/log": "^1.0",
                 "symfony/http-foundation": "4.2.*",
@@ -617,7 +568,7 @@
                 "framework",
                 "tropotek"
             ],
-            "time": "2019-08-20T21:54:07+00:00"
+            "time": "2020-01-29T21:35:40+00:00"
         },
         {
             "name": "ttek/tk-installers",
@@ -625,12 +576,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-installers.git",
-                "reference": "4f5ba159d9ad77c51a4507264d4e05ad9f2e2118"
+                "reference": "90992d46f212d8817635ffb856597a2d5e80c108"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-installers/zipball/4f5ba159d9ad77c51a4507264d4e05ad9f2e2118",
-                "reference": "4f5ba159d9ad77c51a4507264d4e05ad9f2e2118",
+                "url": "https://api.github.com/repos/tropotek/tk-installers/zipball/90992d46f212d8817635ffb856597a2d5e80c108",
+                "reference": "90992d46f212d8817635ffb856597a2d5e80c108",
                 "shasum": ""
             },
             "require": {
@@ -669,7 +620,7 @@
                 "tools",
                 "tropotek"
             ],
-            "time": "2019-06-05T01:06:49+00:00"
+            "time": "2020-01-22T21:58:15+00:00"
         },
         {
             "name": "ttek/tk-mail",
@@ -677,12 +628,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-mail.git",
-                "reference": "e213246bfbd6e40325341a4359adae724b7221bb"
+                "reference": "1a4fc35d195c32620ae5a31f56f916e7691c1277"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-mail/zipball/e213246bfbd6e40325341a4359adae724b7221bb",
-                "reference": "e213246bfbd6e40325341a4359adae724b7221bb",
+                "url": "https://api.github.com/repos/tropotek/tk-mail/zipball/1a4fc35d195c32620ae5a31f56f916e7691c1277",
+                "reference": "1a4fc35d195c32620ae5a31f56f916e7691c1277",
                 "shasum": ""
             },
             "require": {
@@ -716,7 +667,7 @@
                 "table",
                 "tropotek"
             ],
-            "time": "2019-05-28T23:58:29+00:00"
+            "time": "2020-01-29T00:06:44+00:00"
         },
         {
             "name": "ttek/tk-table",
@@ -724,12 +675,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tropotek/tk-table.git",
-                "reference": "8246b70e6e51db48aca3e0f84b57ed61847c4152"
+                "reference": "49002a4fb29ffb4e7358f1d0adaa7bb226bb97f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tropotek/tk-table/zipball/8246b70e6e51db48aca3e0f84b57ed61847c4152",
-                "reference": "8246b70e6e51db48aca3e0f84b57ed61847c4152",
+                "url": "https://api.github.com/repos/tropotek/tk-table/zipball/49002a4fb29ffb4e7358f1d0adaa7bb226bb97f9",
+                "reference": "49002a4fb29ffb4e7358f1d0adaa7bb226bb97f9",
                 "shasum": ""
             },
             "require": {
@@ -762,7 +713,69 @@
                 "table",
                 "tropotek"
             ],
-            "time": "2019-06-19T03:38:33+00:00"
+            "time": "2020-01-29T00:06:30+00:00"
+        },
+        {
+            "name": "wikimedia/less.php",
+            "version": "v1.7.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wikimedia/less.php.git",
+                "reference": "42925c5a01a07d67ca7e82dfc8fb31814d557bc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wikimedia/less.php/zipball/42925c5a01a07d67ca7e82dfc8fb31814d557bc9",
+                "reference": "42925c5a01a07d67ca7e82dfc8fb31814d557bc9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.24"
+            },
+            "bin": [
+                "bin/lessc"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Less": "lib/"
+                },
+                "classmap": [
+                    "lessc.inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Agar",
+                    "homepage": "https://github.com/agar"
+                },
+                {
+                    "name": "Martin Jantošovič",
+                    "homepage": "https://github.com/Mordred"
+                },
+                {
+                    "name": "Josh Schmidt",
+                    "homepage": "https://github.com/oyejorge"
+                }
+            ],
+            "description": "PHP port of the Javascript version of LESS http://lesscss.org (Originally maintained by Josh Schmidt)",
+            "homepage": "http://lessphp.gpeasy.com",
+            "keywords": [
+                "css",
+                "less",
+                "less.js",
+                "lesscss",
+                "php",
+                "stylesheet"
+            ],
+            "time": "2017-03-28T22:19:25+00:00"
         }
     ],
     "packages-dev": [],
