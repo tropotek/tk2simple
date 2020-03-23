@@ -20,10 +20,10 @@
     },
     "scripts":  {
         "post-install-cmd":  [
-            "Tk\\Composer\\InitProjectEvent::postInstall"
+            "Tk\\Composer\\SetupEvent::postInstall"
         ],
         "post-update-cmd":  [
-            "Tk\\Composer\\InitProjectEvent::postUpdate"
+            "Tk\\Composer\\SetupEvent::postUpdate"
         ]
     },
     "require":  {
